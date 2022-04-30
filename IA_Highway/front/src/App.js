@@ -172,48 +172,38 @@ function App() {
  
       </div>  
 
-      <footer>
-<div class="row primary">
-  <div class="column about">
-   <p>
-   IA-Highway doit permettre à un utilisateur de sélectionner/dessiner une région/polygone entourant un objet d'intérêt, dans ce cas, des images de certaines structures de génie civil qui contiennent des dommages seront fournies
-  </p>
+      <footer id="footer">
+      <div class="row primary">
+        <div class="column about">
+          <p>
+          IA-Highway doit permettre à un utilisateur de sélectionner/dessiner une région/polygone entourant un objet d'intérêt, dans ce cas, des images de certaines structures de génie civil qui contiennent des dommages seront fournies
+          </p>
+        </div>
 
-</div>
-
-<div class="column links">
-<h2>Naviguer</h2>
-
- <ul>
-
-  <li>
-   <a href="#">Accueil</a>
-  </li>
-  <li>
-   <a href="#fonctionnement">Fonctionnement</a>
-  </li>
-  <li>
-   <a href="#conteneur">Métadonnées</a>
-  </li>
- </ul>
-
-</div>
-
-
-<div class="column subscribe">
- <h2>Contact Us</h2>
- <ul>
-
-<li>
- donscat24@gmail.com
-</li>
-</ul>
-
-</div>
-
-</div>
-
-</footer>
+        <div class="column links">
+          <h2>Naviguer</h2>
+            <ul>
+              <li>
+              <a href="#">Accueil</a>
+              </li>
+              <li>
+              <a href="#fonctionnement">Fonctionnement</a>
+              </li>
+              <li>
+              <a href="#conteneur">Métadonnées</a>
+              </li>
+            </ul>
+        </div>
+        <div class="column subscribe">
+          <h2>Contact Us</h2>
+            <ul>
+              <li>
+              donscat24@gmail.com
+              </li>
+            </ul>
+        </div>
+      </div>
+    </footer>
 
     </div>
   );

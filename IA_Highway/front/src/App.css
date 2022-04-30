@@ -472,10 +472,7 @@ h1{
   font-weight: 600;
   font-size: 72px;
   line-height: 82px;
-  /* or 114% */
-
   letter-spacing: -2px;
-
   color: #FFFFFF;
 }
 .parag{
@@ -533,24 +530,16 @@ ul {
   list-style: none;
   display: flex;
   flex-direction: column;
-
   margin: 0;
 }
 .links li{
   margin-top: 30px;
-  margin-left:  135px;
-  
-  
-  
+  margin-left:  135px; 
 }
 
  .subscribe li{
   margin-top: 30px;
   margin-left:  30px;
-    
-  
-
-
 }
 ul li a {
   color: #a7a7a7;
@@ -564,7 +553,6 @@ ul li a:hover {
 .about p {
   text-align: justify;
   line-height: 2;
-  
 }
 
 
@@ -576,21 +564,15 @@ ul li a:hover {
   .links li{
     margin-top: 30px;
     margin-left:  245px;
-    
-    
-    
   }
 
 }
 
 h2{
   font-family: 'Poppins';
-font-style: normal;
-font-weight: 400;
-font-size: 30px;
-line-height: 60px;
-/* identical to box height */
-
-
-color: #FFFFFF;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 60px;
+  color: #FFFFFF;
 }
