@@ -7,9 +7,6 @@ body,input,button{
   font-family: 'Poppins';
   text-align: center;
 }
-
-
-/* UTILITIES */
 * {
   margin: 0;
   padding: 0;
@@ -35,7 +32,6 @@ body,input,button{
  .nav-links a {
   color: #fff;
  }
- /* LOGO */
  .logo {
   font-size: 32px;
   background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
@@ -48,8 +44,6 @@ body,input,button{
   font-size: 32px;
   padding-left: 20px;
  }
-
-/* CHECKBOX HACK */
 input[type=checkbox]{
   display: none;
  } 
@@ -84,7 +78,6 @@ input[type=checkbox]{
  .menu li {
   padding: 5px 14px;
  }
- /* APPLYING MEDIA QUERIES */
  @media (max-width: 768px) {
  .menu { 
   display:none;
@@ -121,9 +114,6 @@ h3{
   font-weight: bold;
 }
 
-
-
-
 p{
   font-weight: 400;
   font-size: 20px;
@@ -131,23 +121,18 @@ p{
   text-align: center;
 }
 
-
 .button{
-width: 146px;
-height: 130px;
-background: rgba(255, 255, 255, 0.095);
-box-shadow: inset 2.01px -2.01px 20px rgba(214, 214, 214, 0.17), inset -3.01333px 3.01333px 3.01333px rgba(255, 255, 255, 0.39);
-backdrop-filter: blur(74.4293px);
-/* Note: backdrop-filter has minimal browser support */
-
-border-radius: 26px;
-margin: 1.5rem;
-filter: blur(0px);
-display: flex;
-justify-content:center;
-align-items:center;
- 
-  
+  width: 146px;
+  height: 130px;
+  background: rgba(255, 255, 255, 0.095);
+  box-shadow: inset 2.01px -2.01px 20px rgba(214, 214, 214, 0.17), inset -3.01333px 3.01333px 3.01333px rgba(255, 255, 255, 0.39);
+  backdrop-filter: blur(74.4293px);
+  border-radius: 26px;
+  margin: 1.5rem;
+  filter: blur(0px);
+  display: flex;
+  justify-content:center;
+  align-items:center;
 }
 .blur{
   width: 100%;
@@ -163,8 +148,6 @@ align-items:center;
   overflow: hidden;
 }
 .contain {
- /* background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
-  filter: blur(150px);*/
   width: 100%;
   margin-top: 3rem;
   display: flex;
@@ -209,15 +192,8 @@ align-items:center;
 }
 
 .form-group{
-  /* Bottom space between one form-group and the other */
   width: fit-content;
   height: fit-content;
-  /* Responsive layout */
-  
-  
-  /* One element on top of the other */
- 
-  
 }
 
 .image{
@@ -259,7 +235,6 @@ align-items:center;
   background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
   border-radius: 16px;
   padding: 5px;
-
   margin:40px;
 }
 
@@ -548,7 +523,10 @@ ul li a {
 float: left;  
 }
 ul li a:hover {
-  color: #2a8ded;
+  background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .about p {
   text-align: justify;
