@@ -1,11 +1,11 @@
-import React from "react";
 import './App.css';
-
+import React, { useState, useEffect } from "react";
 import PhotoCameraOutlinedIcon from '@mui\\icons-material\\PhotoCameraOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import ButtonCard from './components/ButtonCard.jsx'
+import scroll from './components/scroll.js'
 
 const inside1={
   "icon": <PhotoCameraOutlinedIcon sx={{ color: "rgba(252, 221, 236, 1)" ,fontSize: 40 }}/>,
@@ -26,17 +26,67 @@ const inside4={
 
 function App() {
   const fileInput = React.useRef();
+  const [navSize, setnavSize] = useState("10rem");
+  const [navColor, setnavColor] = useState("transparent");
+  const listenScrollEvent = () => {
+    window.scrollY > 10 ? setnavColor("#252734") : setnavColor("transparent");
+    window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");
+  };
+  useEffect(() => {
+    window.addEventListener("scroll", listenScrollEvent);
+    return () => {
+      window.removeEventListener("scroll", listenScrollEvent);
+    };
+  }, []);
   return (
     <div className="App">
-       <h3>Pour commencer:</h3>
-      <p>Préferable de suivre ces etapes afin de pouvoir assurer la fonctionnalité du traitement</p>
-      <div class="contain"> 
-        <div class="blur"></div>
-        <ButtonCard inside={inside1} />
-        <ButtonCard inside={inside2} />
-        <ButtonCard inside={inside3} />
-        <ButtonCard inside={inside4} />
-
+       <nav class="navbar" id="navbarJs" style={{
+          backgroundColor: navColor,
+          transition: "all "
+        }}>
+          <div class="logo">IA-HIGHWAY</div>
+          <ul class="nav-links">
+            <input type="checkbox" id="checkbox_toggle" />
+            <label for="checkbox_toggle" class="hamburger">&#9776;</label>
+            <div class="menu">
+              <li>
+                <a href="#">Acceuil</a></li>
+              <li><a href="#fonctionnement">Fonctionnement</a></li>
+              <li><a href="#conteneur">Métadonnée</a></li>
+              <li><a href="#footer">Contact</a></li>
+            </div>
+         </ul>
+        </nav>
+        <div className="eclipse" id="acceuil"></div>
+        <div class="conteneur">
+          <div class="bienvenue">
+            <h1>Bienvenue sur IA-HIGHWAY</h1>
+            <div class="parag">
+              Eviter les dommages
+              <br/>
+              Optimiser/Automatiser les maintenance des infrastructure
+            </div>
+          </div>
+        <div className="form4">
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 1</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        </div>
+      </div>
+      <div className="eclipse1"></div>
+      <div id="fonctionnement">
+        <h3>Pour commencer:</h3>
+        <p>Préferable de suivre ces etapes afin de pouvoir assurer la fonctionnalité du traitement</p>
+        <div class="contain"> 
+          <div class="blur"></div>
+          <ButtonCard inside={inside1} />
+          <ButtonCard inside={inside2} />
+          <ButtonCard inside={inside3} />
+          <ButtonCard inside={inside4} />
+        </div>
       </div>
       <div>
         <form className="form">
