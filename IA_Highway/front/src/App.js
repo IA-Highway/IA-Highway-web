@@ -59,6 +59,67 @@ function App() {
            </div>
           </div>     
         </form>
+      </div>
+      <div id="conteneur">
+        <span className="text"> Les Métadonnées</span>
+        <div className='form3'>
+            <div className="choix">
+              <button className="categorie"> Catégorie</button>
+              <button className="recent"> Récent</button>
+              <button className="filtre"> Filtrer</button>
+           </div>
+          </div>     
+      </div>
+      <div className="form2">
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 1</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 2</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 3</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 4</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 5</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 6</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 7</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+        <div className='form-group'>
+            <div className='imag'> </div>
+            <p id='paragraphe'>Titre 8</p>
+            <hr id='hr'/>
+            <p id='paragraphe'>21/05/2021</p>
+        </div>
+ 
       </div>  
      
     </div>
