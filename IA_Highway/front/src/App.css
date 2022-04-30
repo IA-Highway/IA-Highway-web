@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+body,input,button{
+  background-color: #1F1D2B;
+  color: white;
+  font-family: 'Poppins';
+  text-align: center;
+}
+body{
+padding-bottom: 70px;
+}
+
+h3{
+  letter-spacing: -1px;
+font-weight: 500;
+font-size: 30px;
+line-height: 72px;
+text-align: center;
+}
+
+p{
+  font-weight: 400;
+font-size: 18px;
+line-height: 36px;
+text-align: center;
+
+}
+
+
+.button{
+width: 146px;
+height: 130px;
+background: rgba(255, 255, 255, 0.095);
+box-shadow: inset 2.01px -2.01px 20px rgba(214, 214, 214, 0.17), inset -3.01333px 3.01333px 3.01333px rgba(255, 255, 255, 0.39);
+backdrop-filter: blur(74.4293px);
+/* Note: backdrop-filter has minimal browser support */
+
+border-radius: 26px;
+margin: 1.5rem;
+filter: blur(0px);
+display: flex;
+justify-content:center;
+align-items:center;
+ 
+  
+}
+.blur{
+  width: 100%;
+  height: 53px;
+  background: linear-gradient(rgba(155,81,224,1), rgba(48,128,237,1));
+	filter: blur(150px);
+  opacity: 1;
+  position: absolute;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: hidden;
+}
+.contain {
+ /* background: linear-gradient(93.51deg, #9B51E0 2.84%, #3081ED 99.18%);
+  filter: blur(150px);*/
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.inside {
+
+  opacity: 8;
+  padding-left: 10px;
+  justify-content:center;
+  align-items:center;
+
+}
+.form{
+  width:80%;
+  height:80%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 38px;
+  padding:20px;
+  margin:auto;
+  margin-top: 60px;
+  border-style: solid;
+  border-width: 0.88px;
+  border-color:  #9b6fee;
+  box-shadow: inset 2.01px -2.01px 10px rgb(155	111	238 / 17%), inset -3.01333px 3.01333px 3.01333px rgb(155	111	238 / 10%);
+  padding-top: 70px;
+  flex-direction: row;
+  background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%) ;
+  backdrop-filter: blur(1110px);
+  box-sizing: border-box;
+
+}
+
+.form-group{
+  /* Bottom space between one form-group and the other */
+  width: fit-content;
+  height: fit-content;
+  /* Responsive layout */
+  
+  
+  /* One element on top of the other */
+ 
+  
+}
+
+.image{
+  
+    width: 100%;
+    height: 400px;
+    background:url(components/back.jpg);
+    opacity: 1;
+    border-radius: 20px;
+    margin-top: 5px;
+    
+}
+.contButton{
+ 
+  display: inline-block;
+  flex-direction: row;
+  margin : 35px;
+  position: relative;
+  overflow: hidden;
+  margin-left: 70px;
+}
+.contImage{
+ 
+  display: inline-block;
+  flex-direction: row;
+  width: 60%;
+  height: 50%;
+  position: relative;
+  overflow: hidden;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+.form-group button{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+  border-radius: 16px;
+  padding: 5px;
+
+  margin:40px;
+}
+
+.form-group input[type="text"]{
+  border: 0.88px solid #D7D7D7;
+  box-sizing: border-box;
+  border-radius: 16px;
+  padding: 7px;
+}
+
+#conteneur
+{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+.imag{
+  width: 300px;
+  height: 300px;
+  background:url(components/3.jpg);
+  opacity: 1;
+  margin: 20px;
+  border-radius: 20px;
+  
+}
+.form2{
+  width:95%;
+  height:95%;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 38px;
+  padding:10px;
+  padding-bottom: 50px;
+  padding-top: 30px;
+  margin:auto;
+  margin-top: 30px;
+  border-style: solid;
+  border-width: 0.88px;
+  border-color:  #1BB2DE;
+  box-shadow: inset 2.01px -2.01px 10px rgb(155	111	238 / 17%), inset -3.01333px 3.01333px 3.01333px rgb(155	111	238 / 10%);
+  flex-direction: row;
+  background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%) ;
+  backdrop-filter: blur(1110px);
+  box-sizing: border-box;
+
+}
+#paragraphe{
+  text-align: left;
+  padding-left:40px;
+  font-family: 'Cambria';
+  font-style: normal;
+}
+#hr{
+  height:0.5px;
+  color:white;
+  width:85%;
+  background-color:rgb(234, 227, 227);
+}
+
+.text{
+  width: fit-content;
+  height: fit-content;
+  padding:10px;
+  margin-top: 60px;
+  margin-left: 50px ;
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 38px;
+  border-style: solid;
+  border-width: 0.88px;
+  border-color:  #FB37FF;
+  box-shadow: inset 2.01px -2.01px 10px rgb(155	111	238 / 17%), inset -3.01333px 3.01333px 3.01333px rgb(155	111	238 / 10%);
+  flex-direction: row;
+  background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%) ;
+  backdrop-filter: blur(1110px);
+  box-sizing: border-box;
+  font-size: 25px;
+}
+.choix{
+  width: fit-content;
+  height: fit-content;
+
+}
+.form3{
+  flex-wrap: wrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  height: fit-content;
+  justify-content: center;
+  align-items: center;
+  border-radius: 38px;
+  padding:10px;
+  margin-top: 60px;
+  margin-right:50px;
+  border-style: solid;
+  border-width: 0.88px;
+  border-color:  #FB37FF;
+  box-shadow: inset 2.01px -2.01px 10px rgb(155	111	238 / 17%), inset -3.01333px 3.01333px 3.01333px rgb(155	111	238 / 10%);
+  flex-direction: row;
+  background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%) ;
+  backdrop-filter: blur(1110px);
+  box-sizing: border-box;
+}
+
+.choix button{
+  align-items: center;
+  justify-content: center;
+  margin: 5px;
+  border: 0px;
+  border-radius: 15px;
+  width: fit-content;
+  height: fit-content;
+  font-size: 15px;
+}
+.categorie{
+   background: transparent;
+}
+.recent{
+  background: transparent;
+}
+.filtre{
+  background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+}
