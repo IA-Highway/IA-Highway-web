@@ -48,12 +48,12 @@ body,input,button{
   font-size: 32px;
   padding-left: 20px;
  }
-/*RESPONSIVE NAVBAR MENU STARTS*/
+
 /* CHECKBOX HACK */
 input[type=checkbox]{
   display: none;
  } 
- /*HAMBURGER MENU*/
+ 
  .hamburger {
   display: none;
   font-size: 24px;
@@ -110,9 +110,7 @@ input[type=checkbox]{
   display: block;
 }
 }
-body{
-padding-bottom: 70px;
-}
+
 
 h3{
   letter-spacing: -1px;
@@ -492,4 +490,107 @@ h1{
   line-height: 36px;
   letter-spacing: 0.5px;
   color: #E2E2E2;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-end;
+}
+footer {
+  color: #a7a7a7;
+  font-size: 16px;
+  margin-top: 50px;
+ 
+}
+footer * {
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+.row {
+  padding: 1em 1em;
+}
+.row.primary {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: stretch;
+}
+.column {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 2em;
+  min-height: 15em;
+  margin: auto;
+  margin-top: 8px;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+
+  margin: 0;
+}
+.links li{
+  margin-top: 30px;
+  margin-left:  135px;
+  
+  
+  
+}
+
+ .subscribe li{
+  margin-top: 30px;
+  margin-left:  30px;
+    
+  
+
+
+}
+ul li a {
+  color: #a7a7a7;
+  text-decoration: none;
+  
+float: left;  
+}
+ul li a:hover {
+  color: #2a8ded;
+}
+.about p {
+  text-align: justify;
+  line-height: 2;
+  
+}
+
+
+@media screen and (max-width: 850px) {
+  .row.primary {
+    grid-template-columns: 1fr;
+  }
+
+  .links li{
+    margin-top: 30px;
+    margin-left:  245px;
+    
+    
+    
+  }
+
+}
+
+h2{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 30px;
+line-height: 60px;
+/* identical to box height */
+
+
+color: #FFFFFF;
 }
