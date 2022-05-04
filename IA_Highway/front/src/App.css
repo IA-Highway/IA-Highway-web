@@ -253,6 +253,30 @@ p{
   margin:40px;
 }
 
+.form-group label{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+  border-radius: 16px;
+  padding: 5px;
+  margin:40px;
+}
+
+.form-group input[type="file"]{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+  border-radius: 16px;
+  padding: 5px;
+  margin:40px;
+}
+
 .form-group input[type="text"]{
   border: 0.88px solid #D7D7D7;
   box-sizing: border-box;

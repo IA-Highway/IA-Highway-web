@@ -119,13 +119,8 @@ function App() {
           </div>
           <div className='contButton'>
             <div className="form-group">
-              <button 
-              variant="contained" 
-              color="primary" 
-              >
-              Prendre une photo
-              </button>
-              <input  type="file"  accept="image/*" onChange={imageChange} />
+              <input type="file"  accept="image/*" onChange={imageChange} id="file" style={{ display: 'none' }} />
+              <label for="file">Prendre Image</label>
               <input type="text" placeholder='Titre'/>
               <button type="submit" class="form-submit-btn">
                   Add todo
