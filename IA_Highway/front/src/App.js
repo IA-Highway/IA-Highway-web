@@ -1,11 +1,13 @@
 import './App.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, } from "react";
 import PhotoCameraOutlinedIcon from '@mui\\icons-material\\PhotoCameraOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import ButtonCard from './components/ButtonCard.jsx'
 import scroll from './components/scroll.js'
+import { imageListItemBarClasses } from '@mui/material';
+
 
 const inside1={
   "icon": <PhotoCameraOutlinedIcon sx={{ color: "rgba(252, 221, 236, 1)" ,fontSize: 40 }}/>,
@@ -32,12 +34,28 @@ function App() {
     window.scrollY > 10 ? setnavColor("#252734") : setnavColor("transparent");
     window.scrollY > 10 ? setnavSize("5rem") : setnavSize("10rem");
   };
+  
+  const [selectedImage, setSelectedImage] = useState();
+
+  // This function will be triggered when the file field change
+  const imageChange = (e) => {
+    if (e.target.files && e.target.files.length > 0) {
+      setSelectedImage(e.target.files[0]);
+    }
+  }; 
+  
+
+
+  
+  
+  
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
     return () => {
       window.removeEventListener("scroll", listenScrollEvent);
     };
   }, []);
+   
   return (
     <div className="App">
        <nav class="navbar" id="navbarJs" style={{
@@ -91,17 +109,23 @@ function App() {
       <div>
         <form className="form">
           <div className='contImage'>
-            <div className='image'> </div>
+          
+            <div className='image'  > {selectedImage && (   <img
+              src={URL.createObjectURL(selectedImage)}
+              id="here"
+              alt="Thumb"
+            /> )}
+            </div>
           </div>
           <div className='contButton'>
             <div className="form-group">
               <button 
               variant="contained" 
               color="primary" 
-              onClick={()=>fileInput.current.click()}>
+              >
               Prendre une photo
               </button>
-              <input ref={fileInput} type="file" style={{ display: 'none' }} />
+              <input  type="file"  accept="image/*" onChange={imageChange} />
               <input type="text" placeholder='Titre'/>
               <button type="submit" class="form-submit-btn">
                   Add todo
@@ -207,6 +231,7 @@ function App() {
 
     </div>
   );
+  
 }
 
 export default App;
