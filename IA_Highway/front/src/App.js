@@ -1,5 +1,6 @@
 import './App.css';
-import React, { useState, useEffect, } from "react";
+import React, { useState, useEffect,useRef } from "react";
+import database from "firebase";
 import PhotoCameraOutlinedIcon from '@mui\\icons-material\\PhotoCameraOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
@@ -7,7 +8,7 @@ import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import ButtonCard from './components/ButtonCard.jsx'
 import scroll from './components/scroll.js'
 import { imageListItemBarClasses } from '@mui/material';
-
+import ImageUpload from './ImageUpload'
 
 const inside1={
   "icon": <PhotoCameraOutlinedIcon sx={{ color: "rgba(252, 221, 236, 1)" ,fontSize: 40 }}/>,
@@ -27,6 +28,7 @@ const inside4={
 }
 
 function App() {
+
   const fileInput = React.useRef();
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
@@ -44,17 +46,14 @@ function App() {
     }
   }; 
   
-
-
-  
-  
-  
   useEffect(() => {
     window.addEventListener("scroll", listenScrollEvent);
     return () => {
       window.removeEventListener("scroll", listenScrollEvent);
     };
   }, []);
+
+
    
   return (
     <div className="App">
@@ -107,27 +106,7 @@ function App() {
         </div>
       </div>
       <div>
-        <form className="form">
-          <div className='contImage'>
-          
-            <div className='image'  > {selectedImage && (   <img
-              src={URL.createObjectURL(selectedImage)}
-              id="here"
-              alt="Thumb"
-            /> )}
-            </div>
-          </div>
-          <div className='contButton'>
-            <div className="form-group">
-              <input type="file"  accept="image/*" onChange={imageChange} id="file" style={{ display: 'none' }} />
-              <label for="file">Prendre Image</label>
-              <input type="text" placeholder='Titre'/>
-              <button type="submit" class="form-submit-btn">
-                  Add todo
-              </button>
-           </div>
-          </div>     
-        </form>
+        <ImageUpload/>
       </div>
       <div id="conteneur">
         <span className="text"> Les Métadonnées</span>
@@ -190,7 +169,6 @@ function App() {
         </div>
  
       </div>  
-
       <footer id="footer">
       <div class="row primary">
         <div class="column about">
@@ -226,6 +204,8 @@ function App() {
 
     </div>
   );
+
+
   
 }
 
