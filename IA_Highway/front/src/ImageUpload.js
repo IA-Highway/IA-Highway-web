@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
 import { storage } from "./firebase";
-import firebase from "firebase"
+import firebase from "firebase";
+import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
+
 
 
 function ImageUpload(){
@@ -71,8 +73,17 @@ function ImageUpload(){
             <div className='contButton'>
             <div className="form-group">   
                 <progress value={progress} max="100" />             
+
+                <BrowserView>
                 <input type="file" onChange={handleChange}  accept="image/*" id="file" style={{ display: 'none' }}/>
-                <label for="file">Prendre Image</label>
+                <label for="file">Selectionner Image</label>
+</BrowserView>
+<MobileView>
+<input type="file" onChange={handleChange}  accept="image/*" id="file" style={{ display: 'none' }}/>
+                <label for="file">Selectionner Image</label>
+                <input type="file" onChange={handleChange}  accept="image/*" id="camera" style={{ display: 'none' }} capture/>
+                <label for="camera">Prendre Image</label>
+</MobileView>
                 <input type="text" placeholder='Titre'/>
                 <label onClick={handleUpload}>Upload</label>
             </div>
