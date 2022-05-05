@@ -28,7 +28,6 @@ const inside4={
 }
 
 function App() {
-
   const fileInput = React.useRef();
   const [navSize, setnavSize] = useState("10rem");
   const [navColor, setnavColor] = useState("transparent");
@@ -167,7 +166,6 @@ function App() {
             <hr id='hr'/>
             <p id='paragraphe'>21/05/2021</p>
         </div>
- 
       </div>  
       <footer id="footer">
       <div class="row primary">
