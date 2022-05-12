@@ -9,6 +9,7 @@ import ButtonCard from './components/ButtonCard.jsx'
 import scroll from './components/scroll.js'
 import { imageListItemBarClasses } from '@mui/material';
 import ImageUpload from './ImageUpload'
+import ImageGrid from './ImageGrid'
 
 const inside1={
   "icon": <PhotoCameraOutlinedIcon sx={{ color: "rgba(252, 221, 236, 1)" ,fontSize: 40 }}/>,
@@ -166,7 +167,8 @@ function App() {
             <hr id='hr'/>
             <p id='paragraphe'>21/05/2021</p>
         </div>
-      </div>  
+      </div>
+      <ImageGrid  />  
       <footer id="footer">
       <div class="row primary">
         <div class="column about">

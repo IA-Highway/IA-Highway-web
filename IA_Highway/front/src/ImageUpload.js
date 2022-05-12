@@ -79,8 +79,8 @@ function ImageUpload(){
         return locationY;
     };
     
-    const locationX = useGeoLocationX();
-    const locationY = useGeoLocationY();
+    const locationX = useGeoLocationX().latitude;
+    const locationY = useGeoLocationY().longitude;
     const [image, setImage] = useState(null);
     const [title, setTitle] = useState(null);
     const [url, setUrl] = useState("");
@@ -96,9 +96,10 @@ function ImageUpload(){
         setSelectedImage(e.target.files[0]);
     }
     };
-
+    
     const handleUpload = () => {
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
+    let c=0;
 
     uploadTask.on(
         "state_changed",
@@ -117,31 +118,34 @@ function ImageUpload(){
             .child(image.name)
             .getDownloadURL()
             .then((url)=>{
-                db.collection("Db")
-                .add({
+                firebase.database().ref('images').push({
                     file_url:url,
                     date_captured:Date(),
                     width:0,
                     height:0,
-                });
-                db.collection("gps_location")
-                .add({
+                }).child("gps_location")
+                .set({
                     longitude: locationY,
                     latitude: locationX,
                 });
-                db.collection("objects")
-                .add({
+                /*firebase.database().ref("objects")
+                .set({
                     description:"hh",
                     xmax:0,
                     xmin:0,
                     ymax:0,
                     ymin:0,
-                });
+                });*/
+                c++;
+                
             });
+           
         }
     );
+    
+    
     };
-
+    
     console.log("image: ", image);
 
     return ( 
