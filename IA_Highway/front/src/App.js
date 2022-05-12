@@ -1,13 +1,12 @@
 import './App.css';
 import React, { useState, useEffect,useRef } from "react";
-import database from "firebase";
-import PhotoCameraOutlinedIcon from '@mui\\icons-material\\PhotoCameraOutlined';
+
+import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import ButtonCard from './components/ButtonCard.jsx'
-import scroll from './components/scroll.js'
-import { imageListItemBarClasses } from '@mui/material';
+
 import ImageUpload from './ImageUpload'
 import ImageGrid from './ImageGrid'
 
@@ -95,6 +94,7 @@ function App() {
       </div>
       <div className="eclipse1"></div>
       <div id="fonctionnement">
+        
         <h3>Pour commencer:</h3>
         <p>Préferable de suivre ces etapes afin de pouvoir assurer la fonctionnalité du traitement</p>
         <div class="contain"> 
@@ -106,8 +106,10 @@ function App() {
         </div>
       </div>
       <div>
-        <ImageUpload/>
+      <ImageUpload/>
       </div>
+        
+      
       <div id="conteneur">
         <span className="text"> Les Métadonnées</span>
         <div className='form3'>

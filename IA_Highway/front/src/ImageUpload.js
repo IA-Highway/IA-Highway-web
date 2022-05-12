@@ -1,5 +1,5 @@
 import React, { useState,useEffect } from "react";
-import { render } from "react-dom";
+
 import { storage } from "./firebase";
 import firebase from "firebase";
 import { BrowserView, MobileView, isBrowser, isMobile } from 'react-device-detect';
