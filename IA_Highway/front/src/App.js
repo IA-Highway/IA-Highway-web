@@ -170,7 +170,7 @@ function App() {
             <p id='paragraphe'>21/05/2021</p>
         </div>
       </div>
-      <ImageGrid  />  
+       
       <footer id="footer">
       <div class="row primary">
         <div class="column about">
