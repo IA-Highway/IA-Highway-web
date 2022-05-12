@@ -55,14 +55,17 @@ function App() {
   const [data, setData] = useState([]);
   const [image, setImage] = useState('');
 
+  
   const listItem = () => {
     storage.ref().child('images/').listAll()
       .then(res => {
         res.items.forEach((item) => {
-        
           item.getDownloadURL().then((url) => {
+           
             setData(arr => [...arr, url]);
+           
           })
+          
         })
       })
       .catch(err => {
@@ -130,7 +133,7 @@ function App() {
         
       
       <div id="conteneur">
-        <button className="text" onClick={listItem}> Les Métadonnées</button>
+        <button className="text" onClick={listItem} > Les Métadonnées</button>
         <div className='form3'>
             <div className="choix">
               <button className="categorie"> Catégorie</button>
@@ -148,7 +151,9 @@ function App() {
             <img className='imag' src={val}/> 
             
           ))
+          
         }
+        
         </div>
        
       </div>

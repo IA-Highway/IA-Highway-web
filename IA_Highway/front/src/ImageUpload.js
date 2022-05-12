@@ -158,7 +158,7 @@ function ImageUpload(){
             </div>
             <div className='contButton'>
             <div className="form-group">   
-                <progress value={progress} max="100" />             
+                <progress value={progress} max="100"/>             
 
                 <BrowserView>
                 <input type="file" onChange={handleChange}  accept="image/*" id="file" style={{ display: 'none' }}/>
