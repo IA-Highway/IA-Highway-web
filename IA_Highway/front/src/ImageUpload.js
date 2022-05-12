@@ -171,7 +171,8 @@ function ImageUpload(){
                 <label for="camera">Prendre Image</label>
 </MobileView>
                 <input type="text" placeholder='Titre' onClick={handleChange} name="title"/>
-                <label onClick={handleUpload}>Upload</label>
+                <label onClick={handleUpload}>Charger</label>
+                <label> Dessiner Polygone</label>
             </div>
             </div>  
         </form>
