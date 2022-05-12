@@ -1,6 +1,6 @@
 import './App.css';
 import React, { useState, useEffect,useRef } from "react";
-
+import { storage } from "./firebase";
 import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
@@ -8,7 +8,7 @@ import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import ButtonCard from './components/ButtonCard.jsx'
 
 import ImageUpload from './ImageUpload'
-import ImageGrid from './ImageGrid'
+
 
 const inside1={
   "icon": <PhotoCameraOutlinedIcon sx={{ color: "rgba(252, 221, 236, 1)" ,fontSize: 40 }}/>,
@@ -52,10 +52,29 @@ function App() {
     };
   }, []);
 
+  const [data, setData] = useState([]);
+  const [image, setImage] = useState('');
+
+  const listItem = () => {
+    storage.ref().child('images/').listAll()
+      .then(res => {
+        res.items.forEach((item) => {
+        
+          item.getDownloadURL().then((url) => {
+            setData(arr => [...arr, url]);
+          })
+        })
+      })
+      .catch(err => {
+        alert(err.message);
+      })
+  }
+  
+
 
    
   return (
-    <div className="App">
+    <div className="App" >
        <nav class="navbar" id="navbarJs" style={{
           backgroundColor: navColor,
           transition: "all "
@@ -111,7 +130,7 @@ function App() {
         
       
       <div id="conteneur">
-        <span className="text"> Les Métadonnées</span>
+        <button className="text" onClick={listItem}> Les Métadonnées</button>
         <div className='form3'>
             <div className="choix">
               <button className="categorie"> Catégorie</button>
@@ -121,54 +140,17 @@ function App() {
           </div>     
       </div>
       <div className="form2">
+        <br /><br />
         <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 1</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
+        
+        {
+          data.map((val) => (
+            <img className='imag' src={val}/> 
+            
+          ))
+        }
         </div>
-        <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 2</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
-        </div>
-        <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 3</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
-        </div>
-        <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 4</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
-        </div>
-        <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 5</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
-        </div>
-        <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 6</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
-        </div>
-        <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 7</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
-        </div>
-        <div className='form-group'>
-            <div className='imag'> </div>
-            <p id='paragraphe'>Titre 8</p>
-            <hr id='hr'/>
-            <p id='paragraphe'>21/05/2021</p>
-        </div>
+       
       </div>
        
       <footer id="footer">
