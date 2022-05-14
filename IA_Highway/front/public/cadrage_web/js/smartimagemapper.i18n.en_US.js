@@ -7,10 +7,10 @@ var ____lang = {
 	'Alle Hotspots l�schen ?':'Voulez vous supprimer Polygon ?',
 	'Form':'Shape',
 	'Bezeichnung':'Name',
-	'Linkziel':'Link target',
-	'Mouseover':'Mouseover',
-	'Mouseout':'Mouseout',
+	// 'Linkziel':'Link target',
+	// 'Mouseover':'Mouseover',
+	// 'Mouseout':'Mouseout',
 	'Koordinaten':'Coordinates',
-	'Klick':'Click',
+	// 'Klick':'Click',
 	'Ausgabe':'Output'
 };
