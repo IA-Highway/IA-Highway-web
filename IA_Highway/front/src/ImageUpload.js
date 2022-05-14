@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Home from './pages/home';
 import { storage } from "./firebase";
 import firebase from "firebase";
 import {
