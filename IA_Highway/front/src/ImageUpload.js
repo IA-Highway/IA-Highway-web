@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect,useRef } from "react";
 
 import { storage } from "./firebase";
 import firebase from "firebase";
@@ -87,6 +87,9 @@ function ImageUpload(){
     const [progress, setProgress] = useState(0);
     const db = firebase.firestore();
     
+    const handleTodoChange = (e) => {
+        setTitle(e.target.value);
+    }
     const [selectedImage, setSelectedImage] = useState();
     const handleChange = e => {
     if (e.target.files[0]) {
@@ -96,7 +99,7 @@ function ImageUpload(){
         setSelectedImage(e.target.files[0]);
     }
     };
-    
+    const ref = useRef(null);
     const handleUpload = () => {
     const uploadTask = storage.ref(`images/${image.name}`).put(image);
     let c=0;
@@ -121,23 +124,22 @@ function ImageUpload(){
                 firebase.database().ref('images').push({
                     file_url:url,
                     date_captured:Date(),
-                    width:0,
-                    height:0,
+                    width:ref.current.clientWidth,
+                    height:ref.current.clientHeight,
                 }).child("gps_location")
                 .set({
                     longitude: locationY,
                     latitude: locationX,
-                });
-                /*firebase.database().ref("objects")
-                .set({
-                    description:"hh",
+                })
+                firebase.database().ref('images').child(image.id+"objects").set({
+                    description:title,
                     xmax:0,
                     xmin:0,
                     ymax:0,
                     ymin:0,
-                });*/
-                c++;
-                
+                    
+                });
+
             });
            
         }
@@ -153,7 +155,7 @@ function ImageUpload(){
          <form className="form">
             <div className='contImage'>
 
-            <div className='image'> {selectedImage && ( <img src={URL.createObjectURL(selectedImage)}id="here" name="image" alt="Thumb" /> )}
+            <div className='image'> {selectedImage && ( <img src={URL.createObjectURL(selectedImage)}id="here" name="image" alt="Thumb"  ref={ref}/> )}
             </div>
             </div>
             <div className='contButton'>
@@ -170,7 +172,7 @@ function ImageUpload(){
                 <input type="file" onChange={handleChange}  accept="image/*" id="camera" style={{ display: 'none' }} capture/>
                 <label for="camera">Prendre Image</label>
 </MobileView>
-                <input type="text" placeholder='Titre' onClick={handleChange} name="title"/>
+                <input type="text" placeholder='Titre' value ={title} onChange={handleTodoChange}  name="title"/>
                 <label onClick={handleUpload}>Charger</label>
                 <label> Dessiner Polygone</label>
             </div>

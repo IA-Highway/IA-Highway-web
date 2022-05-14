@@ -144,17 +144,16 @@ function App() {
       </div>
       <div className="form2">
         <br /><br />
-        <div className='form-group'>
-        
-        {
-          data.map((val) => (
-            <img className='imag' src={val}/> 
-            
-          ))
-          
-        }
-        
-        </div>
+          {data.map((val) => {
+                  return (
+                    <div className='form-group'>
+                      <img className='imag' src={val}/> 
+                      <p id='paragraphe'>Titre 1</p>
+                      <hr id='hr'/>
+                      <p id='paragraphe'>21/05/2021</p>
+                    </div>
+                  );
+              })}
        
       </div>
        
