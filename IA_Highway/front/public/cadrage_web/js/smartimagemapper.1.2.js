@@ -181,13 +181,32 @@ smartImageMap.module = (function(options) {
       displayPopertyPanel(hotspotObj);
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
+      jsonHeight = imagemapObj.imagemap.height;
+      jsonWidth = imagemapObj.imagemap.width;
+      jsonDateCaptured = imagemapObj.imagemap.date_captured;
+      jsonGpsLocation = imagemapObj.imagemap.gps_location;
+      jsonHotspots = imagemapObj.imagemap.hotspots;
+      console.log(jsonHeight);
+      console.log(jsonWidth);
+      console.log(jsonDateCaptured);
+      console.log(jsonGpsLocation);
+      console.log(jsonHotspots);
     };
   };
 
   function sendJson() {
-    document.getElementById("hiddenJson").innerHTML = JSON.stringify(
-      imagemapObj
+    // document.getElementById("hiddenJson").innerHTML = JSON.stringify(
+    //   imagemapObj
+    // );
+    document.getElementById("hiddenHotspots").innerHTML = JSON.stringify(
+      jsonHotspots
     );
+    document.getElementById("hiddenGpsLocation").innerHTML = JSON.stringify(
+      jsonGpsLocation
+    );
+    document.getElementById("hiddenDateCaptured").innerHTML = jsonDateCaptured;
+    document.getElementById("hiddenHight").innerHTML = jsonHeight;
+    document.getElementById("hiddenWidth").innerHTML = jsonWidth;
   }
   document.getElementById("addToFirebase").onclick = function() {
     sendJson();
