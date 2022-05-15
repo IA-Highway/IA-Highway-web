@@ -26,6 +26,7 @@
     </p>
 
     <p id="hiddenJson">hiddenJson</p>
+
     <p><img id="output" width="900" hidden /></p>
     
   </body>
@@ -63,20 +64,24 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     import {getDatabase, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js"
-
+    var reversToJson;
     const db = getDatabase();
     function InsertData(){
-      var json = document.getElementById("hiddenJson").innerHTML;
-      console.log(json);
+      var hiddenJson = document.getElementById("hiddenJson").innerHTML;
+      console.log(hiddenJson);
+try {
+ reversToJson = JSON.parse(hiddenJson); 
+  console.log(reversToJson);
+} catch (ex) {
+  console.error(ex);
+}
       set(ref(db, "images/" + "jamal"),{
-        name: json,
+        reversToJson,
       })
       .then(()=>{
         alert("yes")
       })
     }
-
-
     document.getElementById("addToFirebase").addEventListener('click', InsertData);
   </script>
   
