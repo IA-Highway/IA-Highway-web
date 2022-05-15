@@ -170,19 +170,21 @@ smartImageMap.module = (function(options) {
 
   /* ##### ##### ##### ##### ##### ##### ##### ##### EXISTING SHAPES EVENTHANDLER ##### ##### ##### ##### ##### ##### ##### ##### */
   //Einzelner Punkt des Polygons im Editmode
+  var jsonHeight;
+  var jsonWidth;
+  var jsonDateCaptured;
+  var jsonGpsLocation;
+  var jsonHotspots;
+
   var handlerPolygonHandleDragend = function(point, hotspotObj) {
     return function(e) {
       displayPopertyPanel(hotspotObj);
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
-      //HERE
-      console.log("A");
-      console.log(JSON.stringify(imagemapObj));
     };
   };
 
   function sendJson() {
-    console.log(JSON.stringify(imagemapObj));
     document.getElementById("hiddenJson").innerHTML = JSON.stringify(
       imagemapObj
     );
