@@ -6,8 +6,9 @@ import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import ButtonCard from './components/ButtonCard.jsx'
-
+import firebase from "firebase";
 import ImageUpload from './ImageUpload'
+import { ImageList } from '@mui/material';
 
 
 const inside1={
@@ -61,12 +62,20 @@ function App() {
       .then(res => {
         res.items.forEach((item) => {
           item.getDownloadURL().then((url) => {
-           
             setData(arr => [...arr, url]);
-           
           })
           
         })
+        const [value  ,setValue ] = useState(null)
+        var starCountRef =  firebase.database().ref('images/{$id}/date_captured');
+        starCountRef.on('value',(snapshot) =>{
+          alert(value);
+          const data = snapshot.val();
+          if(data !== value){
+            alert("hhhh"+data);
+            setValue(data);
+      }
+    })
       })
       .catch(err => {
         alert(err.message);
@@ -150,7 +159,7 @@ function App() {
                       <img className='imag' src={val}/> 
                       <p id='paragraphe'>Titre 1</p>
                       <hr id='hr'/>
-                      <p id='paragraphe'>21/05/2021</p>
+                      <p id='paragraphe'>{data}</p>
                     </div>
                   );
               })}

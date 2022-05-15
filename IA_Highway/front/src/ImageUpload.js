@@ -85,7 +85,7 @@ function ImageUpload(){
     const [title, setTitle] = useState(null);
     const [url, setUrl] = useState("");
     const [progress, setProgress] = useState(0);
-    const db = firebase.firestore();
+
     
     const handleTodoChange = (e) => {
         setTitle(e.target.value);
@@ -131,7 +131,7 @@ function ImageUpload(){
                     longitude: locationY,
                     latitude: locationX,
                 })
-                firebase.database().ref('images').child(image.id+"objects").set({
+                firebase.database().ref('images').child("objects").set({
                     description:title,
                     xmax:0,
                     xmin:0,
