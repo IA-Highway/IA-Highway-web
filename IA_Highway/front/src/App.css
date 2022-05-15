@@ -22,6 +22,8 @@ body,input,button{
  .navbar {
   display: flex;
   align-items: center;
+  overflow: "hidden";
+  top: 0;
   justify-content: space-between;
   padding: 20px;
   background-color:transparent;
@@ -144,6 +146,7 @@ p{
   align-items:center;
 
 }
+
 .form{
   width:80%;
   height:80%;
@@ -610,16 +613,19 @@ ul li a:hover {
   }
   .menu { 
     display:none;
-    position: absolute;
     background-color:#1F1D2B;
+    justify-content: center;
+    align-items: center;
     right: 0;
     left: 0;
     text-align: center;
     padding: 16px 0;
    }
    .menu li:hover {
-    display: inline-block;
-      transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s ease;
    }
    .menu li + li {
     margin-top: 12px;
