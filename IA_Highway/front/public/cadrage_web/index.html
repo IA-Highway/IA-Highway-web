@@ -16,7 +16,11 @@
     </p>
     <p>
       <div class="centre">
-        <label for="file" class = "upload" style="cursor: pointer;">Upload Image</label>
+        <label for="file" class = "upload" style="cursor: pointer;" >Upload Image</label>
+        <button onclick="getPreciseLocation()">Precise Location </button> 
+        <p id="latitude"></p>
+        <p id="longitude"></p>
+        
       </div>
     </p>
     <p><img id="output" width="900" hidden /></p>
@@ -45,4 +49,29 @@
       smartImageMap.module.init(myOps); //Charge image in the Polygon area
     };
   </script>
+  <script >
+    var lat = document.getElementById("latitude");
+    var lon= document.getElementById("longitude");
+    function getPreciseLocation(){
+        if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(showExactPosition)
+        }else{
+          lat.innerHTML = "Geolocation is not supported"
+          lon.innerHTML = "Geolocation is not supported"
+        }
+    }
+    function showExactPosition(position){
+      lat.innerHTML = "Latitude: "+position.coords.latitude;
+      lon.innerHTML ="Longitude: "+position.coords.longitude;
+    }
+   </script> 
+   <script type="text/javascript">
+    function getSize(){
+      var img = document.querySelector("#container");
+      var width = img.clientWidth;
+      var height = img.clientHeight;
+      alert("Width =" + width + ", " + "Height=" + height);
+    }
+  </script>
+
 </html>
