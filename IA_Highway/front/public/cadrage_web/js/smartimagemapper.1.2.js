@@ -11,7 +11,6 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
-<<<<<<< HEAD
 
 
 
@@ -33,8 +32,6 @@ firebase.initializeApp(firebaseConfig);
 
 const storage = firebase.storage();
 
-=======
->>>>>>> 28ec9dda0e1249aa2fdbf0c8ebf84cc5389d94ce
 var smartImageMap = {};
 
 var ____lang = {};

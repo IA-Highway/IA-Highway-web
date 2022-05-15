@@ -216,13 +216,13 @@ function ImageUpload() {
             />
             <label onClick={handleUpload}>Charger</label>
             */}
-           
+            <label type="file" onClick={showPolygonPage}> Sélectionner Image</label>
         </div>
       </form>
-      <input type="file" onClick={showPolygonPage}> Sélectionner Image</input>
+      
     </div>
   );
-            }
+ }
 
 
 export default ImageUpload;
