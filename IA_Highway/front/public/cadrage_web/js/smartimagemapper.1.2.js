@@ -877,11 +877,11 @@ smartImageMap.module = (function(options) {
     }
 
     ptable = $("#ptable");
-    ptable.append(
-      '<tr><td><label>Id:</label></td><td class="tdlabel">' +
-        hotspotObj.id +
-        "</td></tr>"
-    );
+    // ptable.append(
+    //   '<tr><td><label>Id:</label></td><td class="tdlabel">' +
+    //     hotspotObj.id +
+    //     "</td></tr>"
+    // );
     ptable.append(
       "<tr><td><label>" +
         translate("Form") +
@@ -1161,9 +1161,9 @@ smartImageMap.module = (function(options) {
   };
 
   var createNewHotspot = function(pointsArray) {
-    var guid = buildGuid();
+    // var guid = buildGuid();
     return {
-      id: guid,
+      // id: guid,
       name: "",
       shape: {
         coords: pointsArray,
@@ -1414,8 +1414,8 @@ smartImageMap.module = (function(options) {
         strArea +=
           '&lt;area shape="' +
           shape +
-          '" data-id="' +
-          imagemapObj.imagemap.hotspots[i].id +
+          // '" data-id="' +
+          // imagemapObj.imagemap.hotspots[i].id +
           '" name="' +
           imagemapObj.imagemap.hotspots[i].name +
           '"';
