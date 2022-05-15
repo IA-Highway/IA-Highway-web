@@ -170,6 +170,7 @@ function App() {
           {" "}
           Les Métadonnées
         </button>
+        {/*
         <div className="form3">
           <div className="choix">
             <button className="categorie"> Catégorie</button>
@@ -177,6 +178,7 @@ function App() {
             <button className="filtre"> Filtrer</button>
           </div>
         </div>
+        */}
       </div>
       <div className="form2">
         <br /><br />

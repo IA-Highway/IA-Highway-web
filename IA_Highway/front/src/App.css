@@ -152,14 +152,13 @@ p{
   align-items: center;
   justify-content: center;
   border-radius: 38px;
-  padding:20px;
+  padding:50px;
   margin:auto;
   margin-top: 60px;
   border-style: solid;
   border-width: 0.88px;
   border-color:  #9b6fee;
   box-shadow: inset 2.01px -2.01px 10px rgb(155	111	238 / 17%), inset -3.01333px 3.01333px 3.01333px rgb(155	111	238 / 10%);
-  padding-top: 70px;
   flex-direction: row;
   background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%) ;
   backdrop-filter: blur(1110px);
@@ -204,17 +203,7 @@ p{
   overflow: hidden;
   margin-left: 70px;
 }
-.contImage{
- 
-  display: inline-block;
-  flex-direction: row;
-  width: 60%;
-  height: 50%;
-  position: relative;
-  overflow: hidden;
-  margin-left: 20px;
-  margin-bottom: 50px;
-}
+
 .form-group button{
   display: flex;
   flex-direction: row;
@@ -236,7 +225,8 @@ p{
   background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
   border-radius: 16px;
   padding: 5px;
-  margin:40px;
+  margin: auto;
+
 }
 
 .form-group input[type="file"]{

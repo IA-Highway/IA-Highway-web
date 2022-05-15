@@ -157,8 +157,10 @@ function ImageUpload() {
 
   return (
     <div>
+    
       <form className="form">
-        <div className="contImage">
+        <div className="form-group">
+        {/* 
           <div className="image">
             {" "}
             {selectedImage && (
@@ -213,8 +215,8 @@ function ImageUpload() {
               name="title"
             />
             <label onClick={handleUpload}>Charger</label>
-            <label onClick={showPolygonPage}> Dessiner Polygone</label>
-          </div>
+            */}
+            <label onClick={showPolygonPage}> Sélectionner Image</label>
         </div>
       </form>
     </div>
