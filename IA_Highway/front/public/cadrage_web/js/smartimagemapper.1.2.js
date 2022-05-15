@@ -528,7 +528,7 @@ smartImageMap.module = (function(options) {
           // y: theImage.attrs.y,
           width: originalImageWidth,
           height: originalImageHeight,
-          
+          date_captured:Date(),
           gps_location: { latitude: lat, longitude: long },
           // correctedW: correctedWidth,
           // correctedH: correctedHeight,
@@ -536,7 +536,6 @@ smartImageMap.module = (function(options) {
           // objectlist: [],
         },
       };
-      console.log(lat+"/"+long);
       imagemapObj = newimagemapObj;
     
       var storedImagemapObj = readItem("imagemap");
