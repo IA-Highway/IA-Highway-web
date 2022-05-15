@@ -9,29 +9,76 @@ import {
 } from "react-device-detect";
 
 function ImageUpload() {
-  const useGeoLocationX = () => {
-    const [locationX, setLocationX] = useState({
-      loaded: false,
-      lat: "",
-    });
-
-    const onSuccessX = (locationX) => {
-      setLocationX({
-        latitude: locationX.coords.latitude,
-      });
+    const useGeoLocationX = () => {
+        const [locationX, setLocationX] = useState({
+            loaded: false,
+            lat: "",
+        });
+    
+        const onSuccessX = (locationX) => {
+            setLocationX({
+                latitude: locationX.coords.latitude,
+            });
+        };
+    
+        
+        const onErrorX = (error) => {
+            setLocationX({
+                loaded: true,
+                error: {
+                    code: error.code,
+                    message: error.message,
+                },
+            });
+        };
+    
+        useEffect(() => {
+            if (!("geolocation" in navigator)) {
+                onErrorX({
+                    code: 0,
+                    message: "Geolocation not supported",
+                });
+            }
+    
+            navigator.geolocation.getCurrentPosition(onSuccessX, onErrorX);
+        }, []);
+    
+        return locationX;
     };
-
-    const onErrorX = (error) => {
-      setLocationX({
-        loaded: true,
-        error: {
-          code: error.code,
-          message: error.message,
-        },
-      });
+    const useGeoLocationY = () => {
+        const [locationY, setLocationY] = useState({
+            loaded: false,
+            lng: "",
+        });
+        const onSuccessY = (locationY) => {
+            setLocationY({
+                longitude: locationY.coords.latitude,
+            });
+        };
+        
+    
+        const onErrorY = (error) => {
+            setLocationY({
+                loaded: true,
+                error: {
+                    code: error.code,
+                    message: error.message,
+                },
+            });
+        };
+    
+        useEffect(() => {
+            if (!("geolocation" in navigator)) {
+                onErrorY({
+                    code: 0,
+                    message: "Geolocation not supported",
+                });
+            }
+            navigator.geolocation.getCurrentPosition(onSuccessY, onErrorY);
+        }, []);
+    
+        return locationY;
     };
-    }
-
     
     const locationX = useGeoLocationX().latitude;
     const locationY = useGeoLocationY().longitude;
