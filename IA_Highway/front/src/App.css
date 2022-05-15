@@ -566,10 +566,9 @@ ul li a:hover {
   }
 
   #fonctionnement{
-width: 80%;
+    width: 80%;
     height: -moz-fit-content;
     height: fit-content;
-    
     flex-wrap: wrap;
     display: flex;
     align-items: center;
@@ -580,9 +579,6 @@ width: 80%;
     padding-top: 30px;
     margin: auto;
     margin-top: 30px;
- 
-  
-   
     flex-direction: row;
     box-sizing: border-box;
   

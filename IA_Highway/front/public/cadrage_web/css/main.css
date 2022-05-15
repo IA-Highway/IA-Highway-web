@@ -1,22 +1,58 @@
-html, body{
-	padding:8px;
-	margin:0;
-	background-color:#ECECEC;
-}
+body,input,button{
+	background-color: #1F1D2B;
+	color: white;
+	font-family: 'Poppins';
+	text-align: center;
+  }
+  * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
 
 .centercontainer{
-	display:block;
-	text-align:center;
+	
+	width:80%;
+	height:80%;
+	flex-wrap: wrap;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 38px;
+	padding:20px;
+	margin:auto;
+	margin-top: 60px;
+	border-style: solid;
+	border-width: 0.88px;
+	border-color:  #9b6fee;
+	box-shadow: inset 2.01px -2.01px 10px rgb(155	111	238 / 17%), inset -3.01333px 3.01333px 3.01333px rgb(155	111	238 / 10%);
+	padding-top: 70px;
+	flex-direction: row;
+	background: linear-gradient(169.44deg, rgba(58, 129, 191, 0.08) 1.85%, rgba(65, 48, 90, 0.08) 98.72%) ;
+	backdrop-filter: blur(1110px);
+	box-sizing: border-box;
 }
 
 .buttoncontainer{
 	display:inline-block;
 	clear:both;
-	margin:5px;
 	padding:0;
 	background-color:rgba(220,220,220,1);
 	border:1px solid rgba(190,190,190,1);
 	border-radius:3px;
+	margin : 35px;
+	position: relative;
+	overflow: hidden;
+	margin-left: 70px;
+	display: flex;
+	border-color:  #9b6fee;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	width: 100px;
+	border-radius: 16px;
+	padding: 5px;
+	margin:40px;
 }
 
 .buttoncontainer .btnmode{
@@ -109,13 +145,30 @@ html, body{
 }
 
 .container{
-	display:block;
-	padding:0;
-	margin:0 auto;
+	display: inline-block;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	margin-left: 20px;
+	margin-bottom: 50px;
 }
 
-.container div{
-	border:1px solid rgba(0,170,234,.8);
+@media only screen and (max-width: 850px) {
+	canvas{
+		width: 100%;
+		height: 400px;
+		border-radius: 20px;
+		margin-top: 5px;
+		
+	}
+}
+canvas{
+	width: 100%;
+	height: 400px;
+	border-radius: 20px;
+	margin-top: 5px;
 }
 
 .propertypanel{
@@ -168,6 +221,31 @@ html, body{
 .propertypanel table tr td{
 	vertical-align: top;
 	padding:5px 0px 0px 0px;
+}
+div{
+	margin: 10px 10px;
+	padding: 10px;
+  }
+  
+  p{
+	width: 50%;
+  }
+  
+  /*Centre les éléments p situés dans des éléments possédant un attribut class="centre"*/
+  .centre p{
+	margin: 0 auto;
+  }
+.upload{
+	display: inline-block;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	background: linear-gradient(103.91deg, #9B51E0 21.01%, rgba(48, 129, 237, 0.8) 100%);
+	border-radius: 16px;
+	padding: 7px;
+	padding-left: 20px;
+	padding-right: 20px;
+
 }
 
 .propertypanel table tr td label{
