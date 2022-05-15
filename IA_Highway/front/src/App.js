@@ -1,7 +1,6 @@
 import "./App.css";
 import React, { useState, useEffect, useRef } from "react";
 import { storage } from "./firebase";
-<<<<<<< HEAD
 import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
@@ -10,15 +9,6 @@ import ButtonCard from './components/ButtonCard.jsx'
 import firebase from "firebase";
 import ImageUpload from './ImageUpload'
 import { ImageList } from '@mui/material';
-=======
-import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
-import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
-import CropOutlinedIcon from "@mui/icons-material/CropOutlined";
-import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
-import ButtonCard from "./components/ButtonCard.jsx";
-
-import ImageUpload from "./ImageUpload";
->>>>>>> dcbabd5697a469e5fb317a7a2a893a13650c50b4
 
 const inside1 = {
   icon: (
@@ -85,7 +75,6 @@ function App() {
       .then((res) => {
         res.items.forEach((item) => {
           item.getDownloadURL().then((url) => {
-<<<<<<< HEAD
             setData(arr => [...arr, url]);
           })
           
@@ -100,11 +89,6 @@ function App() {
             setValue(data);
       }
     })
-=======
-            setData((arr) => [...arr, url]);
-          });
-        });
->>>>>>> dcbabd5697a469e5fb317a7a2a893a13650c50b4
       })
       .catch((err) => {
         alert(err.message);
@@ -195,7 +179,6 @@ function App() {
         </div>
       </div>
       <div className="form2">
-<<<<<<< HEAD
         <br /><br />
           {data.map((val) => {
                   return (
@@ -208,20 +191,6 @@ function App() {
                   );
               })}
        
-=======
-        <br />
-        <br />
-        {data.map((val) => {
-          return (
-            <div className="form-group">
-              <img className="imag" src={val} />
-              <p id="paragraphe">Titre 1</p>
-              <hr id="hr" />
-              <p id="paragraphe">21/05/2021</p>
-            </div>
-          );
-        })}
->>>>>>> dcbabd5697a469e5fb317a7a2a893a13650c50b4
       </div>
 
       <footer id="footer">

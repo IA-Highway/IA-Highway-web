@@ -30,7 +30,8 @@ function ImageUpload() {
         },
       });
     };
-<<<<<<< HEAD
+    }
+
     
     const locationX = useGeoLocationX().latitude;
     const locationY = useGeoLocationY().longitude;
@@ -45,69 +46,6 @@ function ImageUpload() {
     }
     const [selectedImage, setSelectedImage] = useState();
     const handleChange = e => {
-=======
-
-    useEffect(() => {
-      if (!("geolocation" in navigator)) {
-        onErrorX({
-          code: 0,
-          message: "Geolocation not supported",
-        });
-      }
-
-      navigator.geolocation.getCurrentPosition(onSuccessX, onErrorX);
-    }, []);
-
-    return locationX;
-  };
-  const useGeoLocationY = () => {
-    const [locationY, setLocationY] = useState({
-      loaded: false,
-      lng: "",
-    });
-    const onSuccessY = (locationY) => {
-      setLocationY({
-        longitude: locationY.coords.latitude,
-      });
-    };
-
-    const onErrorY = (error) => {
-      setLocationY({
-        loaded: true,
-        error: {
-          code: error.code,
-          message: error.message,
-        },
-      });
-    };
-
-    useEffect(() => {
-      if (!("geolocation" in navigator)) {
-        onErrorY({
-          code: 0,
-          message: "Geolocation not supported",
-        });
-      }
-      navigator.geolocation.getCurrentPosition(onSuccessY, onErrorY);
-    }, []);
-
-    return locationY;
-  };
-
-  const locationX = useGeoLocationX().latitude;
-  const locationY = useGeoLocationY().longitude;
-  const [image, setImage] = useState(null);
-  const [title, setTitle] = useState(null);
-  const [url, setUrl] = useState("");
-  const [progress, setProgress] = useState(0);
-  const db = firebase.firestore();
-
-  const handleTodoChange = (e) => {
-    setTitle(e.target.value);
-  };
-  const [selectedImage, setSelectedImage] = useState();
-  const handleChange = (e) => {
->>>>>>> dcbabd5697a469e5fb317a7a2a893a13650c50b4
     if (e.target.files[0]) {
       setImage(e.target.files[0]);
     }
@@ -133,7 +71,6 @@ function ImageUpload() {
       },
       () => {
         storage
-<<<<<<< HEAD
             .ref("images")
             .child(image.name)
             .getDownloadURL()
@@ -160,39 +97,6 @@ function ImageUpload() {
             });
            
         }
-=======
-          .ref("images")
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            firebase
-              .database()
-              .ref("images")
-              .push({
-                file_url: url,
-                date_captured: Date(),
-                width: ref.current.clientWidth,
-                height: ref.current.clientHeight,
-              })
-              .child("gps_location")
-              .set({
-                longitude: locationY,
-                latitude: locationX,
-              });
-            firebase
-              .database()
-              .ref("images")
-              .child(image.id + "objects")
-              .set({
-                description: title,
-                xmax: 0,
-                xmin: 0,
-                ymax: 0,
-                ymin: 0,
-              });
-          });
-      }
->>>>>>> dcbabd5697a469e5fb317a7a2a893a13650c50b4
     );
   };
 
@@ -268,6 +172,7 @@ function ImageUpload() {
       </form>
     </div>
   );
-}
+            }
+
 
 export default ImageUpload;
