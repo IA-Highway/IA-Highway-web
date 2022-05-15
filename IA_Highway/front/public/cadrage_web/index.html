@@ -24,6 +24,8 @@
       </div>
       <button id="addToFirebase" class="upload" >Enregistrer</button>
     </p>
+
+    <p id="hiddenJson">hiddenJson</p>
     <p><img id="output" width="900" hidden /></p>
     
   </body>
@@ -64,8 +66,10 @@
 
     const db = getDatabase();
     function InsertData(){
+      var json = document.getElementById("hiddenJson").innerHTML;
+      console.log(json);
       set(ref(db, "images/" + "jamal"),{
-        name: "Yasmine"
+        name: json,
       })
       .then(()=>{
         alert("yes")

@@ -12,8 +12,6 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
 
-
-
 var smartImageMap = {};
 
 var ____lang = {};
@@ -183,6 +181,15 @@ smartImageMap.module = (function(options) {
     };
   };
 
+  function sendJson() {
+    console.log(JSON.stringify(imagemapObj));
+    document.getElementById("hiddenJson").innerHTML = JSON.stringify(
+      imagemapObj
+    );
+  }
+  document.getElementById("addToFirebase").onclick = function() {
+    sendJson();
+  };
 
   //Einzelner Punkt des Polygons im Editmode
   var handlerPolygonHandleMousemove = function(point, hotspotObj) {
