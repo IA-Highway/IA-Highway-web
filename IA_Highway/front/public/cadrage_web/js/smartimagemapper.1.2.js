@@ -103,11 +103,11 @@ smartImageMap.module = (function(options) {
     return function(e) {
       hotspotObj.shape.coords = convertCommaStringToArray($("#area").val());
       hotspotObj.name = $("#name").val();
-    //   hotspotObj.link = $("#link").val();
-    //   hotspotObj.target = $("#target").val();
-    //   hotspotObj.events.mouseover = $("#mouseover").val();
-    //   hotspotObj.events.mouseout = $("#mouseout").val();
-    //   hotspotObj.events.click = $("#click").val();
+      //   hotspotObj.link = $("#link").val();
+      //   hotspotObj.target = $("#target").val();
+      //   hotspotObj.events.mouseover = $("#mouseover").val();
+      //   hotspotObj.events.mouseout = $("#mouseout").val();
+      //   hotspotObj.events.click = $("#click").val();
 
       editCurrentHotspot(hotspotObj);
       drawHotspots();
@@ -175,6 +175,7 @@ smartImageMap.module = (function(options) {
       displayPopertyPanel(hotspotObj);
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
+      console.log(JSON.stringify(imagemapObj));
     };
   };
 
@@ -483,7 +484,9 @@ smartImageMap.module = (function(options) {
       }); //end image mousedown;
 
       originalImageWidth = imageObj.width;
+      console.log(originalImageWidth);
       originalImageHeight = imageObj.height;
+      console.log(originalImageHeight);
       ratio = imageObj.width / imageObj.height;
       correctedWidth = originalImageWidth;
       correctedHeight = originalImageHeight;
@@ -512,17 +515,18 @@ smartImageMap.module = (function(options) {
 
       var newimagemapObj = {
         imagemap: {
-          name: "smartimagemap",
-          id: buildGuid(),
-          imgpath: settings.imagePath,
-          x: theImage.attrs.x,
-          y: theImage.attrs.y,
-          w: originalImageWidth,
-          h: originalImageHeight,
-          correctedW: correctedWidth,
-          correctedH: correctedHeight,
-          minfactor: minificationFactor,
-          hotspots: [],
+          // name: "smartimagemap",
+          // id: buildGuid(),
+          file_url: settings.imagePath,
+          // x: theImage.attrs.x,
+          // y: theImage.attrs.y,
+          width: originalImageWidth,
+          height: originalImageHeight,
+          gps_location: { latitude: "3", longitude: "3" },
+          // correctedW: correctedWidth,
+          // correctedH: correctedHeight,
+          // minfactor: minificationFactor,
+          // objectlist: [],
         },
       };
 
@@ -1156,13 +1160,13 @@ smartImageMap.module = (function(options) {
       shape: {
         coords: pointsArray,
       },
-    //   link: "",
-    //   target: "",
-    //   events: {
-    //     // mouseover: "",
-    //     // mouseout: "",
-    //     // click: "",
-    //   },
+      //   link: "",
+      //   target: "",
+      //   events: {
+      //     // mouseover: "",
+      //     // mouseout: "",
+      //     // click: "",
+      //   },
     };
   };
 
