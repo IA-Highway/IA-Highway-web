@@ -12,10 +12,11 @@ body,input,button{
 	box-sizing: border-box;
   }
 
+  
 .centercontainer{
 	
-	width:100%;
-	height:100%;
+	width: 80%;
+	height: 80%;
 	flex-wrap: wrap;
 	display: flex;
 	align-items: center;
@@ -147,16 +148,36 @@ body,input,button{
 }
 
 .container{
-	display: flex;
+	display: inline-block;
 	width: 100%;
 	height: 100%;
+	justify-content: center;
+
+	
 }
+ div .kineticjs-content{
+	display: contents;
+	width: 100%;
+	height: 100%;
+	justify-content: center;
 
-
+ }
+@media only screen and (max-width: 850px) {
+	canvas{
+		width: 100%;
+		height: 400px;
+		border-radius: 20px;
+		margin-top: 5px;
+		
+		
+	}
+}
 canvas{
 	width: 100%;
-	height:100%;
+	height: 400px;
 	border-radius: 20px;
+	margin-top: 5px;
+	
 }
 
 .propertypanel{
@@ -422,15 +443,7 @@ div{
 	min-height:400px;
 	overflow:auto;
 }
-div .kineticjs-content{
-	
-	flex-wrap: wrap;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-    flex-direction: row;
 
-  }
 
 .hotspotsarea{
 	display: none;
