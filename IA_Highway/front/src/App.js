@@ -66,6 +66,7 @@ function App() {
 
   const [data, setData] = useState([]);
   const [image, setImage] = useState("");
+  const [value  ,setValue ] = useState([])
 
   const listItem = () => {
     storage
@@ -77,24 +78,35 @@ function App() {
           item.getDownloadURL().then((url) => {
             setData(arr => [...arr, url]);
           })
-          
+          setData([]);
         })
-        const [value  ,setValue ] = useState(null)
-        var starCountRef =  firebase.database().ref('images/{$id}/date_captured');
+        firebase.database().ref('images/').once('value', function(snapshot) {
+          snapshot.forEach(function(childSnapshot) {
+            var key = childSnapshot.key;
+            var data = childSnapshot.val();
+            setValue([]);
+        
+        var starCountRef =  firebase.database().ref('images/'+childSnapshot.key+'/date_captured');
         starCountRef.on('value',(snapshot) =>{
-          alert(value);
-          const data = snapshot.val();
-          if(data !== value){
-            alert("hhhh"+data);
-            setValue(data);
-      }
-    })
+          let datta = snapshot.val();
+          if(datta !== value){
+            //datta.toISOString().split('T')[0];
+            datta = new Date(datta).toISOString().split('T')[0];
+            setValue(arr => [...arr, datta]);
+            
+          }
+        })
+      
+      });
+      
+    });
+        
       })
       .catch((err) => {
         alert(err.message);
       });
   };
-
+  
   return (
     <div className="App">
       <nav
@@ -139,10 +151,10 @@ function App() {
         </div>
         <div className="form4">
           <div className="form-group">
-            <div className="imag"> </div>
+            <img className='imag' src={data[data.length-1]}/>
             <p id="paragraphe">Titre 1</p>
             <hr id="hr" />
-            <p id="paragraphe">21/05/2021</p>
+            <p id="paragraphe">{value[value.length-1]}</p>
           </div>
         </div>
       </div>
@@ -188,11 +200,14 @@ function App() {
                       <img className='imag' src={val}/> 
                       <p id='paragraphe'>Titre 1</p>
                       <hr id='hr'/>
-                      <p id='paragraphe'>{data}</p>
+                      {value.map((date) => {
+                          return (
+                              <p id='paragraphe'>{date}</p>
+                          );
+                      })}
                     </div>
                   );
-              })}
-       
+              })}  
       </div>
 
       <footer id="footer">

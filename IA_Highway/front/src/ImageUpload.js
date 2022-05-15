@@ -153,7 +153,7 @@ function ImageUpload() {
     window.location.href="cadrage_web/index.html"
   };
 
-  console.log("image: ", image);
+ 
 
   return (
     <div>
@@ -216,9 +216,10 @@ function ImageUpload() {
             />
             <label onClick={handleUpload}>Charger</label>
             */}
-            <label onClick={showPolygonPage}> Sélectionner Image</label>
+           
         </div>
       </form>
+      <input type="file" onClick={showPolygonPage}> Sélectionner Image</input>
     </div>
   );
             }
