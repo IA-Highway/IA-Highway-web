@@ -11,6 +11,7 @@ but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 */
+<<<<<<< HEAD
 
 
 
@@ -32,6 +33,8 @@ firebase.initializeApp(firebaseConfig);
 
 const storage = firebase.storage();
 
+=======
+>>>>>>> 28ec9dda0e1249aa2fdbf0c8ebf84cc5389d94ce
 var smartImageMap = {};
 
 var ____lang = {};
@@ -195,9 +198,12 @@ smartImageMap.module = (function(options) {
       displayPopertyPanel(hotspotObj);
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
+      //HERE
+      console.log("A");
       console.log(JSON.stringify(imagemapObj));
     };
   };
+
 
   //Einzelner Punkt des Polygons im Editmode
   var handlerPolygonHandleMousemove = function(point, hotspotObj) {
@@ -504,9 +510,7 @@ smartImageMap.module = (function(options) {
       }); //end image mousedown;
 
       originalImageWidth = imageObj.width;
-      console.log(originalImageWidth);
       originalImageHeight = imageObj.height;
-      console.log(originalImageHeight);
       ratio = imageObj.width / imageObj.height;
       correctedWidth = originalImageWidth;
       correctedHeight = originalImageHeight;
@@ -532,53 +536,54 @@ smartImageMap.module = (function(options) {
         correctedHeight = settings.maximumImageSide;
         correctedWidth = parseInt(settings.maximumImageSide * ratio);
       }
+
       navigator.geolocation.getCurrentPosition(function(position) {
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
-    
+
         lat.innerText = lat.toFixed(2);
         long.innerText = long.toFixed(2);
 
-      var newimagemapObj = {
-        imagemap: {
-          // name: "smartimagemap",
-          // id: buildGuid(),
-          file_url: settings.imagePath,
-          // x: theImage.attrs.x,
-          // y: theImage.attrs.y,
-          width: originalImageWidth,
-          height: originalImageHeight,
-          date_captured:Date(),
-          gps_location: { latitude: lat, longitude: long },
-          // correctedW: correctedWidth,
-          // correctedH: correctedHeight,
-          // minfactor: minificationFactor,
-          // objectlist: [],
-        },
-      };
-      imagemapObj = newimagemapObj;
-    
-      var storedImagemapObj = readItem("imagemap");
-      if (storedImagemapObj != null) {
-        if (storedImagemapObj.hasOwnProperty("imagemap")) {
-          if (storedImagemapObj.imagemap.hotspots) {
-            imagemapObj.imagemap.hotspots = storedImagemapObj.imagemap.hotspots;
-            $("#imagemap").val(JSON.stringify(imagemapObj));
+        var newimagemapObj = {
+          imagemap: {
+            // name: "smartimagemap",
+            // id: buildGuid(),
+            file_url: settings.imagePath,
+            // x: theImage.attrs.x,
+            // y: theImage.attrs.y,
+            width: originalImageWidth,
+            height: originalImageHeight,
+            date_captured: Date(),
+            gps_location: { latitude: lat, longitude: long },
+            // correctedW: correctedWidth,
+            // correctedH: correctedHeight,
+            // minfactor: minificationFactor,
+            // objectlist: [],
+          },
+        };
+        imagemapObj = newimagemapObj;
+
+        var storedImagemapObj = readItem("imagemap");
+        if (storedImagemapObj != null) {
+          if (storedImagemapObj.hasOwnProperty("imagemap")) {
+            if (storedImagemapObj.imagemap.hotspots) {
+              imagemapObj.imagemap.hotspots =
+                storedImagemapObj.imagemap.hotspots;
+              $("#imagemap").val(JSON.stringify(imagemapObj));
+            }
           }
         }
-      }
-      drawHotspots();
-      smartImageMap.module.setMode("selection");
+        drawHotspots();
+        smartImageMap.module.setMode("selection");
 
-      imagelayer.add(theImage);
-      stage.add(imagelayer);
+        imagelayer.add(theImage);
+        stage.add(imagelayer);
 
-      imagelayer.setZIndex(0);
-      stage.setWidth(imageObj.width + 6);
-      stage.setHeight(imageObj.height + 6);
-    });
+        imagelayer.setZIndex(0);
+        stage.setWidth(imageObj.width + 6);
+        stage.setHeight(imageObj.height + 6);
+      });
     }; //end onload
-    
   };
 
   //Draw New Shapes by clicking in image:
@@ -897,11 +902,11 @@ smartImageMap.module = (function(options) {
     }
 
     ptable = $("#ptable");
-    ptable.append(
-      '<tr><td><label>Id:</label></td><td class="tdlabel">' +
-        hotspotObj.id +
-        "</td></tr>"
-    );
+    // ptable.append(
+    //   '<tr><td><label>Id:</label></td><td class="tdlabel">' +
+    //     hotspotObj.id +
+    //     "</td></tr>"
+    // );
     ptable.append(
       "<tr><td><label>" +
         translate("Form") +
@@ -1181,9 +1186,9 @@ smartImageMap.module = (function(options) {
   };
 
   var createNewHotspot = function(pointsArray) {
-    var guid = buildGuid();
+    // var guid = buildGuid();
     return {
-      id: guid,
+      // id: guid,
       name: "",
       shape: {
         coords: pointsArray,
@@ -1434,8 +1439,8 @@ smartImageMap.module = (function(options) {
         strArea +=
           '&lt;area shape="' +
           shape +
-          '" data-id="' +
-          imagemapObj.imagemap.hotspots[i].id +
+          // '" data-id="' +
+          // imagemapObj.imagemap.hotspots[i].id +
           '" name="' +
           imagemapObj.imagemap.hotspots[i].name +
           '"';
