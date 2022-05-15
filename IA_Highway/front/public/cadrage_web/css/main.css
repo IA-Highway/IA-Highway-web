@@ -1,8 +1,10 @@
 body,input,button{
 	background-color: #1F1D2B;
 	color: white;
-	font-family: 'Poppins';
+	font-family: 'Cambria';
 	text-align: center;
+	border-color: transparent;
+	font-size: 15px;
   }
   * {
 	margin: 0;
@@ -246,6 +248,8 @@ div{
 	width: 20%;
 	padding-left: 20px;
 	padding-right: 20px;
+	margin: 10px 10px;
+	padding: 10px;
 
 }
 
