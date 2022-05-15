@@ -512,6 +512,12 @@ smartImageMap.module = (function(options) {
         correctedHeight = settings.maximumImageSide;
         correctedWidth = parseInt(settings.maximumImageSide * ratio);
       }
+      navigator.geolocation.getCurrentPosition(function(position) {
+        var lat = position.coords.latitude;
+        var long = position.coords.longitude;
+    
+        lat.innerText = lat.toFixed(2);
+        long.innerText = long.toFixed(2);
 
       var newimagemapObj = {
         imagemap: {
@@ -522,16 +528,17 @@ smartImageMap.module = (function(options) {
           // y: theImage.attrs.y,
           width: originalImageWidth,
           height: originalImageHeight,
-          gps_location: { latitude: "3", longitude: "3" },
+          
+          gps_location: { latitude: lat, longitude: long },
           // correctedW: correctedWidth,
           // correctedH: correctedHeight,
           // minfactor: minificationFactor,
           // objectlist: [],
         },
       };
-
+      console.log(lat+"/"+long);
       imagemapObj = newimagemapObj;
-
+    
       var storedImagemapObj = readItem("imagemap");
       if (storedImagemapObj != null) {
         if (storedImagemapObj.hasOwnProperty("imagemap")) {
@@ -550,7 +557,9 @@ smartImageMap.module = (function(options) {
       imagelayer.setZIndex(0);
       stage.setWidth(imageObj.width + 6);
       stage.setHeight(imageObj.height + 6);
+    });
     }; //end onload
+    
   };
 
   //Draw New Shapes by clicking in image:
