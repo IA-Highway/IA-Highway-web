@@ -10,7 +10,7 @@ import ButtonCard from './components/ButtonCard.jsx'
 import firebase from "firebase";
 import ImageUpload from './ImageUpload'
 import { ImageList } from '@mui/material';
-
+=======
 import PhotoCameraOutlinedIcon from "@mui/icons-material/PhotoCameraOutlined";
 import FileUploadOutlinedIcon from "@mui/icons-material/FileUploadOutlined";
 import CropOutlinedIcon from "@mui/icons-material/CropOutlined";
@@ -18,7 +18,7 @@ import SaveOutlinedIcon from "@mui/icons-material/SaveOutlined";
 import ButtonCard from "./components/ButtonCard.jsx";
 
 import ImageUpload from "./ImageUpload";
-
+>>>>>>> dcbabd5697a469e5fb317a7a2a893a13650c50b4
 
 const inside1 = {
   icon: (
