@@ -74,8 +74,9 @@ try {
   console.log(reversToJson);
 } catch (ex) {
   console.error(ex);
-}
-      set(ref(db, "images/" + "jamal"),{
+}     
+      var imageName = "image " +  Math.random().toString(36).substr(2, 9);
+      set(ref(db, "images/" + imageName),{
         reversToJson,
       })
       .then(()=>{
