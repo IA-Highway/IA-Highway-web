@@ -67,24 +67,28 @@ function App() {
   const [data, setData] = useState([]);
   const [image, setImage] = useState("");
   const [value  ,setValue ] = useState([])
-
+  const [url  ,setUrl ] = useState([])
+  const [myMap, setMyMap] = useState(new Map());
   const listItem = () => {
-    storage
-      .ref()
-      .child("images/")
-      .listAll()
-      .then((res) => {
-        res.items.forEach((item) => {
-          item.getDownloadURL().then((url) => {
-            setData(arr => [...arr, url]);
-          })
-          setData([]);
-        })
+    
         firebase.database().ref('images/').once('value', function(snapshot) {
           snapshot.forEach(function(childSnapshot) {
             setValue([]);
             var key = childSnapshot.key;
             var data = childSnapshot.val();
+
+          var starCountRef =  firebase.database().ref('images/'+childSnapshot.key+'/file_url');
+          starCountRef.on('value',(snapshot) =>{
+            
+            let imageUrl = snapshot.val();
+            if(imageUrl !== value){
+              //datta.toISOString().split('T')[0];
+              setMyMap(map => new Map(myMap.set( snapshot.val(),null)));
+              setUrl(arr => [...arr, imageUrl]);
+              
+            }
+            
+          })
             
         var starCountRef =  firebase.database().ref('images/'+childSnapshot.key+'/date_captured');
         starCountRef.on('value',(snapshot) =>{
@@ -101,9 +105,9 @@ function App() {
       
       });
       
-    });
+    })
         
-      })
+    
       .catch((err) => {
         alert(err.message);
       });
@@ -153,7 +157,7 @@ function App() {
         </div>
         <div className="form4">
           <div className="form-group">
-            <img className='imag' src={data[data.length-1]}/>
+            <img className='imag' src={url[url.length-1]}/>
             <p id="paragraphe">Titre 1</p>
             <hr id="hr" />
             <p id="paragraphe">{value[value.length-1]}</p>
@@ -196,7 +200,7 @@ function App() {
       </div>
       <div className="form2">
         <br /><br />
-          {data.map((val) => {
+          {url.map((val) => {
                   return (
                     <div className='form-group'>
                       <img className='imag' src={val}/> 
