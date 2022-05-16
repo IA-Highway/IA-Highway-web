@@ -188,7 +188,7 @@ canvas{
 	float:left;
 	width:350px;
 	z-index:100;
-	background-color:rgba(0,170,234,.75);
+	background-color:#1F1D2B;
 	margin-left:20px;
 	border-radius:5px;
 	padding:0px 0px 6px 0px;
@@ -199,6 +199,7 @@ canvas{
 	top:65px;
 	right:20px;
 	border:2px solid rgba(0,170,234,.75);
+	border-color:  #9b6fee;
 }
 
 .propertypanel #draghandle{
