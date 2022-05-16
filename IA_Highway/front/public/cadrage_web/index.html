@@ -100,24 +100,23 @@ var width =document.getElementById("hiddenWidth").innerHTML;
       uploadTask.then(function(snapshot) {
     return getDownloadURL(uploadTask.snapshot.ref)
  }).then(url => {
-  file_url = url;
-  }) 
-}).catch(error => {
-  console.error(error);
-});
-set(ref(db, "images/" + imageName),{
-        file_url:file_url,
+  set(ref(db, "images/" + imageName),{
+        file_url:url,
         width,
         height,
         date_captured,
         gps_location,
         hotspots,
-
       })
       .then(()=>{
         alert("Bien Ajouté");
         window.location.href="javascript:history.back()"
       })
+  }) 
+}).catch(error => {
+  console.error(error);
+});
+
           
       
     }
