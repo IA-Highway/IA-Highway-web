@@ -148,7 +148,6 @@ function ImageUpload() {
   };
 
   const showPolygonPage = () => {
-    console.log("Abdel");
     //Display index.html polygon page
     window.location.href="cadrage_web/index.html"
   };

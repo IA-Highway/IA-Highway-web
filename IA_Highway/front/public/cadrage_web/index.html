@@ -31,7 +31,6 @@
     <p id="hiddenDateCaptured">hiddenDateCaptured</p>
     <p id="hiddenGpsLocation">hiddenGpsLocation</p>
     <p id="hiddenHotspots">hiddenHotspots</p>
-
     <p><img id="output" width="900" hidden /></p>
     
   </body>
@@ -69,6 +68,7 @@
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
     import {getDatabase, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js"
+    import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
     
     var gps_location;
     var hotspots;
@@ -83,20 +83,40 @@ try {
 } catch (ex) {
   console.error(ex);
 }     
-var width =document.getElementById("hiddenWidth").innerHTML; ;
-    var height= document.getElementById("hiddenHight").innerHTML;;
-    var date_captured= document.getElementById("hiddenDateCaptured").innerHTML;;
+var width =document.getElementById("hiddenWidth").innerHTML;
+    var height= document.getElementById("hiddenHight").innerHTML;
+    var date_captured= document.getElementById("hiddenDateCaptured").innerHTML;
+    //TODOOO
+    var file_url;
       var imageName = "image " +  Math.random().toString(36).substr(2, 9);
-      set(ref(db, "images/" + imageName),{
+      var image = document.getElementById("output");
+      console.log(image.src);
+const metadata = { contentType: image.type };
+const storage = getStorage();
+const storageRef = sRef(storage, "images/"+imageName);
+const uploadTask = uploadBytesResumable(storageRef, image, metadata);
+uploadTask.on('state-changed', (snapshot) => {
+   
+}, error => {
+  console.log(error);
+}, () => {
+  getDownloadURL(uploadTask.snapshot.ref).then(downloadURL => {
+    file_url = downloadURL;
+    set(ref(db, "images/" + imageName),{
+        file_url: file_url,
         width,
         height,
         date_captured,
         gps_location,
         hotspots,
+
       })
       .then(()=>{
         alert("yes")
       })
+  });
+});
+      
     }
     document.getElementById("addToFirebase").addEventListener('click', InsertData);
   </script>

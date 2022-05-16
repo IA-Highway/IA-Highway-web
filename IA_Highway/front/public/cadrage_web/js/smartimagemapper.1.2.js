@@ -186,11 +186,6 @@ smartImageMap.module = (function(options) {
       jsonDateCaptured = imagemapObj.imagemap.date_captured;
       jsonGpsLocation = imagemapObj.imagemap.gps_location;
       jsonHotspots = imagemapObj.imagemap.hotspots;
-      console.log(jsonHeight);
-      console.log(jsonWidth);
-      console.log(jsonDateCaptured);
-      console.log(jsonGpsLocation);
-      console.log(jsonHotspots);
     };
   };
 
