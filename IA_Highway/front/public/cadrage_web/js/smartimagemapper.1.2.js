@@ -120,7 +120,7 @@ smartImageMap.module = (function(options) {
 
   var handlerDeleteHotspot = function(hotspotObj) {
     return function(e) {
-      if (confirm(translate("Diesen Hotspot l�schen ?"))) {
+      if (confirm(translate("Voulez vous supprimer ce cadrage ?"))) {
         deleteHotspot(hotspotObj);
       }
     };
@@ -128,7 +128,8 @@ smartImageMap.module = (function(options) {
 
   var handlerDeleteAllHotspots = function() {
     return function(e) {
-      if (confirm(translate("Alle Hotspots l�schen ?"))) {
+      console.log("9");
+      if (confirm(translate("Voulez vous supprimer tous les cadrages ?"))) {
         clearPopertyPanel();
         clearHandles();
         imagemapObj.imagemap.hotspots = [];
@@ -885,9 +886,7 @@ smartImageMap.module = (function(options) {
 
     elProperty.html("").show();
     elProperty.append(
-      '<div id="draghandle"><h2>Hotspot - ' +
-        translate("Eigenschaften") +
-        ' <span id="close">X</span></h2></div><form id="pform" name="saveproperties"/>'
+      '<div id="draghandle"><h2>Information sur le dessin <span id="close">X</span></h2></div><form id="pform" name="saveproperties"/>'
     );
     if (pform) {
       pform.remove();
@@ -916,7 +915,7 @@ smartImageMap.module = (function(options) {
     );
     ptable.append(
       "<tr><td><label>" +
-        translate("Bezeichnung") +
+        translate("Titre") +
         ':</label></td><td><input type="text" name="name" id="name" value="' +
         hotspotObj.name +
         '"/></td></tr>'
@@ -937,7 +936,7 @@ smartImageMap.module = (function(options) {
     // );
     ptable.append(
       "<tr><td><label>" +
-        translate("Koordinaten") +
+        translate("Coordonées") +
         ':</label></td><td><textarea name="area" id="area">' +
         area +
         "</textarea></td></tr>"
@@ -967,7 +966,7 @@ smartImageMap.module = (function(options) {
       '<tr><td></td><td><a class="btn btnok" href="javascript:void(0)" id="okhotspot">' +
         translate("OK") +
         '</a>&#160;<a class="btn btndelete" href="javascript:void(0)" id="deletehotspot">' +
-        translate("L�schen") +
+        translate("Supprimer") +
         "</a></td></tr>"
     );
 
