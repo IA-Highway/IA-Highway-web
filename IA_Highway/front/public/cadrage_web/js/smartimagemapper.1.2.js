@@ -128,7 +128,6 @@ smartImageMap.module = (function(options) {
 
   var handlerDeleteAllHotspots = function() {
     return function(e) {
-      console.log("9");
       if (confirm(translate("Voulez vous supprimer tous les cadrages ?"))) {
         clearPopertyPanel();
         clearHandles();

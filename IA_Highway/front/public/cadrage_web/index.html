@@ -79,10 +79,12 @@ if(isImageLoaded === "true"){
 try {
  gps_location = JSON.parse(hiddenGps_location); 
  hotspots = JSON.parse(hiddenHotspots); 
-
+ 
 } catch (ex) {
+  alert("Veuilez dessiné le Polygon")
   console.error(ex);
-}    
+
+}
 
 var file_url = "file_url"; 
 var width =document.getElementById("hiddenWidth").innerHTML;
