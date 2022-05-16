@@ -125,6 +125,9 @@ smartImageMap.module = (function(options) {
       }
     };
   };
+  window.onload = function() {
+    console.log("C");
+  };
 
   var handlerDeleteAllHotspots = function() {
     return function(e) {
@@ -196,6 +199,12 @@ smartImageMap.module = (function(options) {
     document.getElementById("hiddenDateCaptured").innerHTML = jsonDateCaptured;
     document.getElementById("hiddenHight").innerHTML = jsonHeight;
     document.getElementById("hiddenWidth").innerHTML = jsonWidth;
+    clearPopertyPanel();
+    clearHandles();
+    imagemapObj.imagemap.hotspots = [];
+    drawHotspots();
+    //storeItem('hotspots', JSON.stringify(hotspots));
+    storeItem("imagemap", JSON.stringify(imagemapObj));
     // console.log(jsonHeight);
     // console.log(jsonWidth);
     // console.log(jsonDateCaptured);
@@ -764,6 +773,7 @@ smartImageMap.module = (function(options) {
         jsonDateCaptured = imagemapObj.imagemap.date_captured;
         jsonGpsLocation = imagemapObj.imagemap.gps_location;
         jsonHotspots = imagemapObj.imagemap.hotspots;
+        
       }
     });
 
@@ -1613,11 +1623,6 @@ smartImageMap.module = (function(options) {
       '<a href="javascript:void(0)" class="btnmode clearall" id="deleteallhotspots" title="Delete all Hotspots"></a>';
     html += "</div>";
 
-    html += '<div class="buttoncontainer">';
-    html +=
-      '<a href="javascript:void(0)" class="btnmode createoutput" id="json" title="Create JSON output"></a>';
-    html += "</div>";
-
     html += '<div id="container" class="container"></div>';
 
     html += "</div>";
@@ -1649,9 +1654,9 @@ smartImageMap.module = (function(options) {
       $(".createoutput").on("click", handlerCreateOutput());
       $("#deleteallhotspots").on("click", handlerDeleteAllHotspots());
 
-      $("#savehotspots").on("click", function() {
-        $("#savehotspotsform").submit();
-      });
+      // $("#savehotspots").on("click", function() {
+      //   $("#savehotspotsform").submit();
+      // });
     },
     setMode: function(strMode) {
       currentmode = strMode;
