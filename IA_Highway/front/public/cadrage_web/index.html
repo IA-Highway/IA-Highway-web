@@ -20,11 +20,11 @@
       <button id="addToFirebase" class="upload" >Enregistrer</button>
     </p>
 
-    <p id="hiddenWidth">hiddenWidth</p>
-    <p id="hiddenHight">hiddenHight</p>
-    <p id="hiddenDateCaptured">hiddenDateCaptured</p>
-    <p id="hiddenGpsLocation">hiddenGpsLocation</p>
-    <p id="hiddenHotspots">hiddenHotspots</p>
+    <p id="hiddenWidth" hidden>hiddenWidth</p>
+    <p id="hiddenHight" hidden>hiddenHight</p>
+    <p id="hiddenDateCaptured" hidden>hiddenDateCaptured</p>
+    <p id="hiddenGpsLocation" hidden>hiddenGpsLocation</p>
+    <p id="hiddenHotspots" hidden>hiddenHotspots</p>
     <p><img id="output" width="900"  hidden/></p>
     
   </body>
@@ -83,13 +83,11 @@ try {
 var width =document.getElementById("hiddenWidth").innerHTML;
     var height= document.getElementById("hiddenHight").innerHTML;
     var date_captured= document.getElementById("hiddenDateCaptured").innerHTML;
-    //TODOOO
     var image = document.getElementById("output");
     console.log(image.src);
+    console.log(image)
 
       var imageName = "image " +  Math.random().toString(36).substr(2, 9);
-
-      
 
       fetch(image.src).then(res => {
   return res.blob();
