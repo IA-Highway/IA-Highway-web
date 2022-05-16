@@ -5,10 +5,13 @@ import PhotoCameraOutlinedIcon from '@mui/icons-material/PhotoCameraOutlined';
 import FileUploadOutlinedIcon from '@mui/icons-material/FileUploadOutlined';
 import CropOutlinedIcon from '@mui/icons-material/CropOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
-import ButtonCard from './components/ButtonCard.jsx'
+import ButtonCard from './components/ButtonCard.jsx';
+import ListItems from './components/ListItem.js';
+import LastAdded from './components/lastAdded.js';
 import firebase from "firebase";
 import ImageUpload from './ImageUpload'
-import { ImageList } from '@mui/material';
+import { ImageList, ListItem } from '@mui/material';
+
 
 const inside1 = {
   icon: (
@@ -39,9 +42,13 @@ const inside4 = {
   text: "Uploader photo",
 };
 
+
+
+
 function App() {
   const fileInput = React.useRef();
   const [navSize, setnavSize] = useState("10rem");
+  const [list, setlist] = useState([]);
   const [navColor, setnavColor] = useState("transparent");
   const listenScrollEvent = () => {
     window.scrollY > 10 ? setnavColor("#252734") : setnavColor("transparent");
@@ -112,9 +119,14 @@ function App() {
         alert(err.message);
       });
   };
-  
+ 
+
+
+
   return (
+    
     <div className="App">
+     
       <nav
         class="navbar"
         id="navbarJs"
@@ -157,10 +169,7 @@ function App() {
         </div>
         <div className="form4">
           <div className="form-group">
-            <img className='imag' src={url[url.length-1]}/>
-            <p id="paragraphe">Titre 1</p>
-            <hr id="hr" />
-            <p id="paragraphe">{value[value.length-1]}</p>
+            <LastAdded />
           </div>
         </div>
       </div>
@@ -200,20 +209,11 @@ function App() {
       </div>
       <div className="form2">
         <br /><br />
-          {url.map((val) => {
-                  return (
-                    <div className='form-group'>
-                      <img className='imag' src={val}/> 
-                      <p id='paragraphe'>Titre 1</p>
-                      <hr id='hr'/>
-                      {value.map((date) => {
-                          return (
-                              <p id='paragraphe'>{date}</p>
-                          );
-                      })}
-                    </div>
-                  );
-              })}  
+        <div className='form-group'>
+        <ListItems />
+        </div>
+       
+       
       </div>
 
       <footer id="footer">
