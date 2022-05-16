@@ -209,9 +209,9 @@ function App() {
       </div>
       <div className="form2">
         <br /><br />
-        <div className='form-group'>
+        
         <ListItems />
-        </div>
+       
        
        
       </div>

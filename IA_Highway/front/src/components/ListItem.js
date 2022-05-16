@@ -16,13 +16,14 @@ const   ListItems = () => {
       for (var i = 0; i < v.length; i++){
     const num = v[i].hotspots.length;
     const img = v[i].file_url;
-    const date = v[i].date_captured;
+    let  date = v[i].date_captured;
+    date = new Date(date).toISOString().split('T')[0];
     const host =  v[i].hotspots;
     
-      item.push( <><img className='imag' src={img}/> 
+      item.push( <><div className="form-group"><img className='imag' src={img}/> 
       <p id='paragraphe'>{host[0].name}</p>
       <hr id='hr'/>
-      <p id='paragraphe'>{date}</p></>)
+      <p id='paragraphe'>{date}</p></div></>)
       
     }
   });

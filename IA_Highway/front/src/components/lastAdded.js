@@ -16,7 +16,8 @@ const   LastAdded = () => {
 
     const num = v[0].hotspots.length;
     const img = v[0].file_url;
-    const date = v[0].date_captured;
+    let date = v[0].date_captured;
+    date = new Date(date).toISOString().split('T')[0];
     const host =  v[0].hotspots;
     
       item.push( <><img className='imag' src={img}/> 
