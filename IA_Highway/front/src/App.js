@@ -82,19 +82,22 @@ function App() {
         })
         firebase.database().ref('images/').once('value', function(snapshot) {
           snapshot.forEach(function(childSnapshot) {
+            setValue([]);
             var key = childSnapshot.key;
             var data = childSnapshot.val();
-            setValue([]);
-        
+            
         var starCountRef =  firebase.database().ref('images/'+childSnapshot.key+'/date_captured');
         starCountRef.on('value',(snapshot) =>{
+          
           let datta = snapshot.val();
+          console.log(childSnapshot.key+datta);
           if(datta !== value){
             //datta.toISOString().split('T')[0];
             datta = new Date(datta).toISOString().split('T')[0];
             setValue(arr => [...arr, datta]);
             
           }
+          
         })
       
       });

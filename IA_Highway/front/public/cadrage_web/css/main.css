@@ -155,28 +155,30 @@ body,input,button{
 
 	
 }
- div .kineticjs-content{
-	display: contents;
+ div.kineticjs-content{
+	 position :relative;
+	display: inline-block;
 	width: 100%;
 	height: 100%;
-	justify-content: center;
 
  }
 @media only screen and (max-width: 850px) {
 	canvas{
 		width: 100%;
-		height: 400px;
+		height: 100%;
 		border-radius: 20px;
 		margin-top: 5px;
+		position:relative;
 		
 		
 	}
 }
 canvas{
 	width: 100%;
-	height: 400px;
+	height: 100%;
 	border-radius: 20px;
 	margin-top: 5px;
+	position:relative;
 	
 }
 
