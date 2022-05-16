@@ -124,7 +124,7 @@ smartImageMap.module = (function(options) {
   var handlerDeleteHotspot = function(hotspotObj) {
     return function(e) {
       console.log("6");
-      if (confirm(translate("Diesen Hotspot l�schen ?"))) {
+      if (confirm(translate("Voulez vous supprimer ce cadrage ?"))) {
         console.log("7");
         deleteHotspot(hotspotObj);
       }
