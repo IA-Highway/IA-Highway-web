@@ -90,7 +90,6 @@ function App() {
         starCountRef.on('value',(snapshot) =>{
           
           let datta = snapshot.val();
-          console.log(childSnapshot.key+datta);
           if(datta !== value){
             //datta.toISOString().split('T')[0];
             datta = new Date(datta).toISOString().split('T')[0];

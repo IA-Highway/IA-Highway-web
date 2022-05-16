@@ -83,7 +83,6 @@ smartImageMap.module = (function(options) {
   /* ##### ##### ##### ##### ##### ##### ##### ##### EVENTHANDLER FUNCTIONS ##### ##### ##### ##### ##### ##### ##### ##### */
   var handlerShape = function(hotspotObj, shapeObj) {
     return function() {
-      console.log("2");
       if (currentmode == "selection") {
         displayPopertyPanel(hotspotObj);
         editCurrentHotspot(hotspotObj);
@@ -94,7 +93,6 @@ smartImageMap.module = (function(options) {
 
   var handlerShapeMouseup = function(hotspotObj, shapeObj) {
     return function() {
-      console.log("3");
       //if(currentmode == "selection"){
       shapeObj.setFill(settings.fillColor);
       //}
@@ -104,7 +102,6 @@ smartImageMap.module = (function(options) {
   var handlerSaveHotspot = function(hotspotObj) {
     return function(e) {
       hotspotObj.shape.coords = convertCommaStringToArray($("#area").val());
-      console.log("4");
       hotspotObj.name = $("#name").val();
       //   hotspotObj.link = $("#link").val();
       //   hotspotObj.target = $("#target").val();
@@ -123,9 +120,7 @@ smartImageMap.module = (function(options) {
 
   var handlerDeleteHotspot = function(hotspotObj) {
     return function(e) {
-      console.log("6");
       if (confirm(translate("Diesen Hotspot l�schen ?"))) {
-        console.log("7");
         deleteHotspot(hotspotObj);
       }
     };
@@ -133,16 +128,13 @@ smartImageMap.module = (function(options) {
 
   var handlerDeleteAllHotspots = function() {
     return function(e) {
-      console.log("9");
       if (confirm(translate("Alle Hotspots l�schen ?"))) {
-        console.log("10");
         clearPopertyPanel();
         clearHandles();
         imagemapObj.imagemap.hotspots = [];
         drawHotspots();
         //storeItem('hotspots', JSON.stringify(hotspots));
         storeItem("imagemap", JSON.stringify(imagemapObj));
-        console.log("11");
       }
       smartImageMap.module.setMode("selection");
     };
@@ -151,7 +143,6 @@ smartImageMap.module = (function(options) {
   var handlerCreateOutput = function() {
     return function(e) {
       var format, theHtml, oContainer;
-      console.log("12");
       $("#propertypanel").hide();
       smartImageMap.module.setMode("selection");
       format = $(this).attr("id");
@@ -186,7 +177,6 @@ smartImageMap.module = (function(options) {
 
   var handlerPolygonHandleDragend = function(point, hotspotObj) {
     return function(e) {
-      console.log("1");
       displayPopertyPanel(hotspotObj);
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
@@ -206,11 +196,11 @@ smartImageMap.module = (function(options) {
     document.getElementById("hiddenDateCaptured").innerHTML = jsonDateCaptured;
     document.getElementById("hiddenHight").innerHTML = jsonHeight;
     document.getElementById("hiddenWidth").innerHTML = jsonWidth;
-    console.log(jsonHeight);
-    console.log(jsonWidth);
-    console.log(jsonDateCaptured);
-    console.log(jsonGpsLocation);
-    console.log(jsonHotspots);
+    // console.log(jsonHeight);
+    // console.log(jsonWidth);
+    // console.log(jsonDateCaptured);
+    // console.log(jsonGpsLocation);
+    // console.log(jsonHotspots);
   }
   document.getElementById("addToFirebase").onclick = function() {
     sendJson();
@@ -247,7 +237,6 @@ smartImageMap.module = (function(options) {
   //Ganzes Polygon im Editmode:
   var handlerDragendPolygon = function(hotspotObj) {
     return function(e) {
-      console.log("13");
       var points = this.getPoints();
 
       // this.getPoints() liefert immer das urspruengliche Punkte Array, nicht das NACH dem dragend
@@ -275,7 +264,6 @@ smartImageMap.module = (function(options) {
   var handlerCircleHandleDragend = function(point, hotspotObj) {
     return function(e) {
       displayPopertyPanel(hotspotObj);
-      console.log("14");
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
     };
@@ -288,7 +276,6 @@ smartImageMap.module = (function(options) {
       var centerY = hotspotObj.shape.coords[1];
       var handleX = point.getX();
       var handleY = point.getY();
-      console.log("15");
       drawRadiusLine(centerX, centerY, handleX, handleY);
 
       hotspotObj.shape.coords[0] = centerX;
@@ -315,7 +302,6 @@ smartImageMap.module = (function(options) {
       r = this.getRadius();
 
       hotspotObj.shape.coords = [x, y, r];
-      console.log("16");
       displayPopertyPanel(hotspotObj);
       editCurrentHotspot(hotspotObj);
       drawHotspots();
@@ -330,7 +316,6 @@ smartImageMap.module = (function(options) {
       displayPopertyPanel(hotspotObj);
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
-      console.log("17");
     };
   };
 
@@ -342,7 +327,6 @@ smartImageMap.module = (function(options) {
     return function(e) {
       handleX = point.getX();
       handleY = point.getY();
-      console.log("18");
       drawRadiusLine(centerX, centerY, handleX, handleY);
       hotspotObj.shape.coords = [centerX, centerY, handleX, handleY];
 
@@ -388,7 +372,6 @@ smartImageMap.module = (function(options) {
       drawHotspots();
       //storeItem('hotspots', JSON.stringify(hotspots));
       storeItem("imagemap", JSON.stringify(imagemapObj));
-      console.log("19");
     };
   };
 
@@ -445,7 +428,6 @@ smartImageMap.module = (function(options) {
       drawNewPolygon(newpointsAry);
       drawnewshapelayer.setZIndex(19);
       drawnewhandlelayer.setZIndex(20);
-      console.log("20");
     };
   };
 
@@ -530,7 +512,6 @@ smartImageMap.module = (function(options) {
       ratio = imageObj.width / imageObj.height;
       correctedWidth = originalImageWidth;
       correctedHeight = originalImageHeight;
-      console.log("21");
 
       if (imageObj.width >= settings.maximumImageSide) {
         minificationFactor = parseFloat(
@@ -557,7 +538,6 @@ smartImageMap.module = (function(options) {
       navigator.geolocation.getCurrentPosition(function(position) {
         var lat = position.coords.latitude;
         var long = position.coords.longitude;
-        console.log("22");
         lat.innerText = lat.toFixed(2);
         long.innerText = long.toFixed(2);
 
@@ -691,7 +671,6 @@ smartImageMap.module = (function(options) {
 
   var drawNewSingleHandlePoint = function(x, y, shape) {
     drawnewhandlelayer.destroy();
-    console.log("24");
     var point = new Kinetic.Circle({
       x: x,
       y: y,
@@ -728,7 +707,6 @@ smartImageMap.module = (function(options) {
   };
 
   var createNewPolygon = function() {
-    console.log("25");
     var x, y, firstX, firstY;
 
     x = stage.getPointerPosition().x;
@@ -740,7 +718,6 @@ smartImageMap.module = (function(options) {
   };
 
   var drawNewPolygon = function(vertices) {
-    console.log("26");
     drawnewshapelayer.destroy();
 
     var newpolygon = new Kinetic.Line({
@@ -770,7 +747,6 @@ smartImageMap.module = (function(options) {
     });
 
     point.on("mousedown touchstart", function(e) {
-      console.log("29");
       stage.on("mousemove touchmove", handlerNewPolygonHandleMousemove(point));
 
       if (vertices[0] == point.getX() && vertices[1] == point.getY()) {
@@ -820,7 +796,6 @@ smartImageMap.module = (function(options) {
   //Draw Exiting Shapes from hotspots Array:
   var drawHotspots = function() {
     shapeslayer.destroy();
-    console.log("29");
     for (var i = 0; i < imagemapObj.imagemap.hotspots.length; i++) {
       drawShape(imagemapObj.imagemap.hotspots[i], shapeslayer);
     }

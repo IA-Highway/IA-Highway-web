@@ -25,6 +25,7 @@
     <p id="hiddenDateCaptured" >hiddenDateCaptured</p>
     <p id="hiddenGpsLocation" >hiddenGpsLocation</p>
     <p id="hiddenHotspots" >hiddenHotspots</p>
+    <p id="isImageLoaded" >false</p>
     <p><img id="output" width="900" hidden/></p>
     
   </body>
@@ -38,7 +39,7 @@
     src="js/smartimagemapper.i18n.en_US.js"
   ></script>
 
-  <script type="module">
+  <script type="module">    
     // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.1/firebase-analytics.js";
@@ -64,13 +65,17 @@
     import {getDatabase, ref, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-database.js"
     import {getStorage, ref as sRef, uploadBytesResumable, getDownloadURL} from "https://www.gstatic.com/firebasejs/9.8.1/firebase-storage.js";
     
+
     var gps_location;
     var hotspots;
     const db = getDatabase();
     function InsertData(){
-      var hiddenGps_location = document.getElementById("hiddenGpsLocation").innerHTML;
+
+      var isImageLoaded = document.getElementById("isImageLoaded").innerHTML;
+console.log(isImageLoaded);
+if(isImageLoaded === "true"){
+  var hiddenGps_location = document.getElementById("hiddenGpsLocation").innerHTML;
       var hiddenHotspots = document.getElementById("hiddenHotspots").innerHTML;
-      // console.log(hiddenJson);
 try {
  gps_location = JSON.parse(hiddenGps_location); 
  hotspots = JSON.parse(hiddenHotspots); 
@@ -84,10 +89,6 @@ var width =document.getElementById("hiddenWidth").innerHTML;
     var height= document.getElementById("hiddenHight").innerHTML;
     var date_captured= document.getElementById("hiddenDateCaptured").innerHTML;
     var image = document.getElementById("output");
-   
-    console.log(image.src);
-    console.log(image)
-
       var imageName = "image " +  Math.random().toString(36).substr(2, 9);
 
       fetch(image.src).then(res => {
@@ -116,11 +117,14 @@ var width =document.getElementById("hiddenWidth").innerHTML;
 }).catch(error => {
   console.error(error);
 });
-
-          
+}else{
+  alert("Veillez Uploader une Image")
+}
       
+     
     }
     document.getElementById("addToFirebase").addEventListener('click', InsertData);
+
   </script>
   
   <!-- <script language="javascript">
@@ -136,24 +140,8 @@ var width =document.getElementById("hiddenWidth").innerHTML;
       image.src = URL.createObjectURL(event.target.files[0]);
       var myOps = { imagePath: image.src };
       smartImageMap.module.init(myOps); //Charge image in the Polygon area
+      document.getElementById("isImageLoaded").innerHTML = true;
     };
   </script>
-  <script >
-    var lat = document.getElementById("latitude");
-    var lon= document.getElementById("longitude");
-    function getPreciseLocation(){
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition(showExactPosition)
-        }else{
-          lat.innerHTML = "Geolocation is not supported"
-          lon.innerHTML = "Geolocation is not supported"
-        }
-    }
-    function showExactPosition(position){
-      lat.innerHTML = "Latitude: "+position.coords.latitude;
-      lon.innerHTML ="Longitude: "+position.coords.longitude;
-    }
-   </script> 
    
-
 </html>
