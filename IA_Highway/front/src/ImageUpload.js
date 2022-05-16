@@ -215,7 +215,7 @@ function ImageUpload() {
             />
             <label onClick={handleUpload}>Charger</label>
             */}
-            <label type="file" onClick={showPolygonPage}> Sélectionner Image</label>
+            <label type="file" onClick={showPolygonPage}>Commencer</label>
         </div>
       </form>
       
